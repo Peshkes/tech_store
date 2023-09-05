@@ -4,7 +4,7 @@ import style from './homePage.module.css';
 const HomePage = () => {
     return (
         <div className={style.homePage}>
-
+            Home
         </div>
     );
 };

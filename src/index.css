@@ -4,6 +4,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+    --header-dark: #17181F;
+
     --grey-dark-1: #0000000D;
     --grey-dark-2: #0000001A;
     --grey-dark-3: #0000004D;

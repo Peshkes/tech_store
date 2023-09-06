@@ -1,0 +1,20 @@
+.header{
+    height: 79px;
+    background-color: var(--header-dark);
+    display: flex;
+}
+.header div{
+    display: flex;
+    align-items: center;
+}
+.header div button{
+    background-color: initial;
+    height: 79px;
+    width: 79px;
+    background-size: 75%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}

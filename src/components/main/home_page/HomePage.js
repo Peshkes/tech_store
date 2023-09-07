@@ -3,10 +3,10 @@ import style from './homePage.module.css';
 import Slider from "./slider/Slider";
 import {HeaderContext} from "../../../utils/context";
 import ProductsGallery from "../products_gallery/ProductsGallery";
+import Banner from "../banner/Banner";
 
 const HomePage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
-
     useEffect(() => {
         if ('black' !== headerStyle)
             setHeaderStyle('black');
@@ -19,7 +19,7 @@ const HomePage = () => {
                 <h2>Новые поступления</h2>
                 <ProductsGallery/>
             </div>
-
+            <Banner/>
         </div>
     );
 };

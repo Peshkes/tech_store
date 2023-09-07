@@ -1,3 +1,15 @@
 .imageCard {
-    width: calc(100% / 4);
+
+}
+
+.id {
+    color: var(--grey-dark-4);
+}
+
+.boxImg {
+    width: 17vw;
+}
+
+.stars {
+    padding: 0 0.2vw;
 }

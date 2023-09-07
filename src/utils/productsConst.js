@@ -79,6 +79,42 @@ import product9_3_x2 from '../images/products/laptops/9/9-3-x2.webp';
 import product9_4 from '../images/products/laptops/9/9-4.webp';
 import product9_4_x2 from '../images/products/laptops/9/9-4-x2.webp';
 
+import product10_1 from '../images/products/headphones/10/10-1.webp';
+import product10_1_x2 from '../images/products/headphones/10/10-1-x2.webp';
+import product10_2 from '../images/products/headphones/10/10-2.webp';
+import product10_2_x2 from '../images/products/headphones/10/10-2-x2.webp';
+import product10_3 from '../images/products/headphones/10/10-3.webp';
+import product10_3_x2 from '../images/products/headphones/10/10-3-x2.webp';
+import product10_4 from '../images/products/headphones/10/10-4.webp';
+import product10_4_x2 from '../images/products/headphones/10/10-4-x2.webp';
+
+import product11_1 from '../images/products/headphones/11/11-1.webp';
+import product11_1_x2 from '../images/products/headphones/11/11-1-x2.webp';
+import product11_2 from '../images/products/headphones/11/11-2.webp';
+import product11_2_x2 from '../images/products/headphones/11/11-2-x2.webp';
+import product11_3 from '../images/products/headphones/11/11-3.webp';
+import product11_3_x2 from '../images/products/headphones/11/11-3-x2.webp';
+import product11_4 from '../images/products/headphones/11/11-4.webp';
+import product11_4_x2 from '../images/products/headphones/11/11-4-x2.webp';
+
+import product12_1 from '../images/products/headphones/12/12-1.webp';
+import product12_1_x2 from '../images/products/headphones/12/12-1-x2.webp';
+import product12_2 from '../images/products/headphones/12/12-2.webp';
+import product12_2_x2 from '../images/products/headphones/12/12-2-x2.webp';
+import product12_3 from '../images/products/headphones/12/12-3.webp';
+import product12_3_x2 from '../images/products/headphones/12/12-3-x2.webp';
+import product12_4 from '../images/products/headphones/12/12-4.webp';
+import product12_4_x2 from '../images/products/headphones/12/12-4-x2.webp';
+
+import product13_1 from '../images/products/laptops/13/13-1.webp';
+import product13_1_x2 from '../images/products/laptops/13/13-1-x2.webp';
+import product13_2 from '../images/products/laptops/13/13-2.webp';
+import product13_2_x2 from '../images/products/laptops/13/13-2-x2.webp';
+import product13_3 from '../images/products/laptops/13/13-3.webp';
+import product13_3_x2 from '../images/products/laptops/13/13-3-x2.webp';
+import product13_4 from '../images/products/laptops/13/13-4.webp';
+import product13_4_x2 from '../images/products/laptops/13/13-4-x2.webp';
+
 
 
 export const productsArr = [
@@ -161,5 +197,41 @@ export const productsArr = [
         imgBig: [product9_1_x2, product9_2_x2, product9_3_x2, product9_4_x2],
         rating: 4,
         price: 319990
+    },
+
+    {
+        id: 10,
+        name: 'Apple AirPods Max A2096',
+        imgSmall: [product10_1, product10_2, product10_3, product10_4],
+        imgBig: [product10_1_x2, product10_2_x2, product10_3_x2, product10_4_x2],
+        rating: 5,
+        price: 74990
+    },
+
+    {
+        id: 11,
+        name: 'JBL Tune 110',
+        imgSmall: [product11_1, product11_2, product11_3, product11_4],
+        imgBig: [product11_1_x2, product11_2_x2, product11_3_x2, product11_4_x2],
+        rating: 4,
+        price: 1220
+    },
+
+    {
+        id: 12,
+        name: 'SunWind SW-WH202',
+        imgSmall: [product12_1, product12_2, product12_3, product12_4],
+        imgBig: [product12_1_x2, product12_2_x2, product12_3_x2, product12_4_x2],
+        rating: 2,
+        price: 799
+    },
+
+    {
+        id: 13,
+        name: 'Apple MacBook Pro A2485',
+        imgSmall: [product13_1, product13_2, product13_3, product13_4],
+        imgBig: [product13_1_x2, product13_2_x2, product13_3_x2, product13_4_x2],
+        rating: 5,
+        price: 209990
     }
 ]

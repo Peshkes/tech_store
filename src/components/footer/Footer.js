@@ -16,9 +16,9 @@ const Footer = () => {
                     </div>
                     <div className={style.t2}>
                         <h4><Link>Товары</Link></h4>
-                        <Link>Ноутбуки</Link>
-                        <Link>Телефоны</Link>
-                        <Link>Наушники</Link>
+                        <Link to={'products/laptops'}>Ноутбуки</Link>
+                        <Link to={'products/phones'}>Телефоны</Link>
+                        <Link to={'products/headphones'}>Наушники</Link>
                     </div>
                     <div className={style.t3}>
                         <h4><Link>Помощь</Link></h4>
@@ -33,14 +33,14 @@ const Footer = () => {
                     <div className={style.t5}>
                         <h4>Контакты</h4>
                         <p>Email</p>
-                        <a>peshkesv@gmail.com</a>
+                        <a href={'mailto:peshkesv@gmail.com'} className={style.email}>peshkesv@gmail.com</a>
                         <p>Телефон</p>
-                        <a>+7 911 111 20 00</a>
+                        <a href={'tel:+79111112000'} className={style.phone}>+7 911 111 20 00</a>
                         <p>Адрес</p>
-                        <a>Россия, г. Москва,<br/>Ломоносовский проспект, д. 27</a>
+                        <a href={"https://yandex.ru/maps/-/CDQXfI2d"} className={style.address}>Россия, г. Москва,<br/>Ломоносовский проспект, д. 27</a>
                     </div>
                 </div>
-                <hr className={style.hr}/>
+                <hr className={style.hr} size={'1'}/>
                 <div className={style.bot}>
                     <div className={style.copyright}>
                         <p>Peshkes Valeriy @ 2023</p>

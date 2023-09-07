@@ -1,13 +1,10 @@
 h2{
-    font-size: 36px;
+    font-size: 2.2vw;
     margin-top: 98px;
     margin-bottom: 48px;
 }
 .narrow{
     box-sizing: border-box;
     width: 100%;
-    padding: 0 155px;
-}
-.margins{
-    margin: 48px 0;
+    padding: 0 12vw;
 }

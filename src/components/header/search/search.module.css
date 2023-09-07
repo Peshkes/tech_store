@@ -15,12 +15,14 @@
 }
 .black input {
     border: 1px var(--grey-light-2) solid;
+    color: white;
 }
 .black input::placeholder{
     color: var(--grey-light-3);
 }
 .white input {
     border: 1px var(--grey-dark-2) solid;
+    color: black;
 }
 .white input::placeholder{
     color: var(--grey-dark-3);

@@ -34,6 +34,15 @@ import product4_3_x2 from '../images/products/laptops/4/4-3-x2.webp';
 import product4_4 from '../images/products/laptops/4/4-4.webp';
 import product4_4_x2 from '../images/products/laptops/4/4-4-x2.webp';
 
+import product5_1 from '../images/products/laptops/5/5-1.webp';
+import product5_1_x2 from '../images/products/laptops/5/5-1-x2.webp';
+import product5_2 from '../images/products/laptops/4/4-2.webp';
+import product5_2_x2 from '../images/products/laptops/4/4-2-x2.webp';
+import product5_3 from '../images/products/laptops/4/4-3.webp';
+import product5_3_x2 from '../images/products/laptops/4/4-3-x2.webp';
+import product5_4 from '../images/products/laptops/4/4-4.webp';
+import product5_4_x2 from '../images/products/laptops/4/4-4-x2.webp';
+
 export const productsArr = [
     {
         id: 1,

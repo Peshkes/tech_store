@@ -6,7 +6,7 @@
 .footer a, .footer p{
     text-decoration: none;
     color: var(--grey-light-4);
-    margin: 8px 0;
+    margin: 0.6vw 0;
 }
 .hr{
     color: var(--grey-light-2);
@@ -14,11 +14,11 @@
 }
 .footer h4, .footer h4 a{
     color: white;
-    margin: 0 0 20px 0;
+    margin: 0 0 1.5vw 0;
 }
 .top{
     display: flex;
-    padding: 60px 0;
+    padding: 4vw 0;
 }
 .top div{
     display: flex;

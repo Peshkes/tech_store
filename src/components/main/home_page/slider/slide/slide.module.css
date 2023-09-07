@@ -1,0 +1,30 @@
+.slide{
+    position: relative;
+    display: none;
+}
+.slide div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+.slide h3{
+    color: white;
+    font-size: 5vw;
+    position: absolute;
+    top: 2%;
+    margin: 0;
+}
+.slide h4{
+    color: white;
+    font-size: 2vw;
+    position: absolute;
+    margin-top: 10px;
+    top: 15%;
+}
+.slide button{
+    position: absolute;
+    bottom: 2%;
+    left: 5%;
+    padding: 0 20px;
+}

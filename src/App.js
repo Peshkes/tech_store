@@ -2,13 +2,18 @@ import './App.css';
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
+import {useState} from "react";
+import {HeaderContext} from "./utils/context";
 
 function App() {
+    const [headerStyle, setHeaderStyle] = useState('white');
     return (
         <div className="App">
-            <Header></Header>
-            <Main></Main>
-            <Footer></Footer>
+            <Header headerStyle={headerStyle}/>
+            <HeaderContext.Provider value={{setHeaderStyle}}>
+                <Main/>
+            </HeaderContext.Provider>
+            <Footer/>
         </div>
     );
 }

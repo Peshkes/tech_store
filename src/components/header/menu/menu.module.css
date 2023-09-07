@@ -1,3 +1,14 @@
 .menu{
-
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.menu a{
+    text-decoration: none;
+}
+.black a{
+    color: var(--grey-light-4);
+}
+.white a{
+    color: var(--grey-dark-4);
 }

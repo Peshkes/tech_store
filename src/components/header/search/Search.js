@@ -1,14 +1,15 @@
 import style from './search.module.css';
-import React, {Component} from 'react';
+import React from 'react';
+import searchWhite from '../../../images/header/searchWhite.svg';
+import searchBlack from '../../../images/header/searchBlack.svg';
 
-class Search extends Component {
-    render() {
-        return (
-            <div className={style.search}>
-                <input type="search" placeholder={'Search..'}/>
-            </div>
-        );
-    }
+const Search = ({headerStyle}) => {
+    return (
+        <div className={style.search + ' ' + style[headerStyle]}>
+            <img src={headerStyle === 'white' ? searchBlack : searchWhite} alt="search"/>
+            <input type="search" placeholder={'Search'}/>
+        </div>
+    );
 }
 
 export default Search;

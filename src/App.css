@@ -1,0 +1,13 @@
+h2{
+    font-size: 36px;
+    margin-top: 98px;
+    margin-bottom: 48px;
+}
+.narrow{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 155px;
+}
+.margins{
+    margin: 48px 0;
+}

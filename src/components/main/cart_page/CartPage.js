@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import style from './cartPage.module.css';
 import {HeaderContext} from "../../../utils/context";
+import BreadCrumbs from "../bread_crumbs/BreadCrumbs";
 
 const CartPage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
@@ -12,7 +13,10 @@ const CartPage = () => {
 
     return (
         <div className={style.cartPage}>
-            Cart
+
+            <div className="narrow">
+                <BreadCrumbs/>
+            </div>
         </div>
     );
 };

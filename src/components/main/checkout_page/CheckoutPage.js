@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import style from './checkoutPage.module.css';
 import {HeaderContext} from "../../../utils/context";
+import BreadCrumbs from "../bread_crumbs/BreadCrumbs";
 
 const CheckoutPage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
@@ -12,7 +13,10 @@ const CheckoutPage = () => {
 
     return (
         <div className={style.checkoutPage}>
-            Checkout
+
+            <div className="narrow">
+                <BreadCrumbs/>
+            </div>
         </div>
     );
 };

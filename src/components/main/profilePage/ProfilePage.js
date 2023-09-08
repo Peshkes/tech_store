@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import style from './profilePage.module.css'
 import {HeaderContext} from "../../../utils/context";
+import BreadCrumbs from "../bread_crumbs/BreadCrumbs";
 
 const ProfilePage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
@@ -12,7 +13,10 @@ const ProfilePage = () => {
 
     return (
         <div className={style.profilePage}>
-            Профиль
+
+            <div className="narrow">
+                <BreadCrumbs/>
+            </div>
         </div>
     );
 };

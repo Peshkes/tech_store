@@ -7,6 +7,7 @@ import ProductsPage from "./products_page/ProductsPage";
 import CartPage from "./cart_page/CartPage";
 import ProfilePage from "./profilePage/ProfilePage";
 import ErrorPage from "./error_page/ErrorPage";
+import ArticlePage from "./article_page/ArticlePage";
 
 const Main = () => {
     return (
@@ -17,6 +18,7 @@ const Main = () => {
                     <Route element={<ProductsPage/>} path={":sort"}></Route>
                 </Route>
                 <Route element={<BlogPage/>} path={"blog"}></Route>
+                <Route element={<ArticlePage/>} path={"blog/:articleId"}/>
                 <Route element={<CartPage/>} path={"cart"}></Route>
                 <Route element={<ProfilePage/>} path={"profile"}>
                     <Route element={<ProfilePage/>} path={":action"}/>

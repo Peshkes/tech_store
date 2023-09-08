@@ -1,3 +1,29 @@
 .articlePage{
 
 }
+.article{
+    padding: 0 12vw;
+    margin: 3vw 0;
+}
+.article h3{
+    font-size: 2.2vw;
+    text-align: center;
+}
+.article p{
+    font-size: 1vw;
+}
+.article div span{
+    font-size: 1vw;
+    color: var(--grey-dark-4);
+}
+
+.article img{
+    width: 100%;
+}
+.subtitle{
+    font-style: italic;
+}
+.meta{
+    display: flex;
+    justify-content: space-between;
+}

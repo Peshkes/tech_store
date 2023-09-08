@@ -3,13 +3,14 @@ import style from './articlePage.module.css';
 import {HeaderContext} from "../../../utils/context";
 import Banner from "../banner/Banner";
 import BreadCrumbs from "../bread_crumbs/BreadCrumbs";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams, useResolvedPath} from "react-router-dom";
 import {articles} from "../../../utils/articlesConst";
 
 const ArticlePage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
     const navigate = useNavigate();
     const params = useParams();
+    const match  = useResolvedPath("").pathname;
     const articleObject = articles.find(article => article.id === +params.articleId);
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const ArticlePage = () => {
     return (
         <div className={style.articlePage}>
             <div className="narrow">
-                <BreadCrumbs/>
+                <BreadCrumbs match={match}/>
                 <div className={style.article}>
                     <h3>{articleObject && articleObject.title}</h3>
                     <div className={style.meta}>

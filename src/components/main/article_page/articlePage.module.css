@@ -19,6 +19,8 @@
 
 .article img{
     width: 100%;
+    margin: 2vw 0;
+
 }
 .subtitle{
     font-style: italic;
@@ -26,4 +28,6 @@
 .meta{
     display: flex;
     justify-content: space-between;
+    margin: 2vw 0;
+
 }

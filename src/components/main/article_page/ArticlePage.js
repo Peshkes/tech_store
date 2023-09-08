@@ -19,7 +19,7 @@ const ArticlePage = () => {
             navigate('/blog');
         }
     }, []);
-    let date
+    let date;
     if (articleObject) {
         date = articleObject.date.toLocaleDateString().split('/');
         [date[0], date[1]] = [date[1], date[0]];

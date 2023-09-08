@@ -1,10 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-import {PagesContext} from "../../../../utils/PagesContext";
 
-const Pagination = ({whereAmI, count, totalCountProducts, paginate}) => {
-
-    const {page} = useContext(PagesContext);
+const Pagination = ({count, totalCountProducts, paginate}) => {
 
     const pageNumbers = [];
 
@@ -16,7 +13,7 @@ const Pagination = ({whereAmI, count, totalCountProducts, paginate}) => {
         <div>
             <ul>
                 {pageNumbers.map(number => <li key={number}>
-                    <Link to={`${page}/${number}`} onClick={() => paginate(number)}>{number}</Link>
+                    <Link to={`?p=${number}`} onClick={() => paginate(number)}>{number}</Link>
                 </li>)}
             </ul>
         </div>

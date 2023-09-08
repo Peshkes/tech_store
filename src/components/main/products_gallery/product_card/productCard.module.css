@@ -21,17 +21,28 @@
 
 .id {
     color: var(--grey-dark-4);
-    font-size: 0.9vw;
+    font-size: 1vw;
 }
 
-h4.discrCard{
+.info {
     display: flex;
     justify-content: space-between;
-    font-size: 0.9vw;
+    align-items: center;
 }
 
-h4.discrCard > span {
+
+.discrCard {
+    font-size: 1vw;
+    font-weight: 500;
+    width: 60%;
+}
+
+.price {
     font-size: 1.2vw;
+}
+
+.rub {
+    color: var(--grey-dark-4)
 }
 
 .cart {
@@ -51,3 +62,4 @@ h4.discrCard > span {
 .images {
     position: relative;
 }
+

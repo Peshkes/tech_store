@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './productCard.module.css';
-import star from '../../../../images/star.svg';
-import greyStar from '../../../../images/grey-star.svg';
+import star from '../../../../images/starBlue.svg';
+import greyStar from '../../../../images/starGrey.svg';
 import cart from '../../../../images/cartBlue.svg'
 
 const ProductCard = ({item}) => {
@@ -16,10 +16,10 @@ const ProductCard = ({item}) => {
         let noStarsArr = [];
 
         for (let i = 0; i < countStars; i++) {
-            starsArr[i] = <img className={style.stars} alt={star} src={star}/>;
+            starsArr[i] = <img key={`starBlue` + i} className={style.stars} alt={star} src={star}/>;
         }
         for (let j = 0; j < 5 - countStars; j++) {
-            noStarsArr[j] = <img className={style.stars} alt={greyStar} src={greyStar}/>;
+            noStarsArr[j] = <img key={`starGrey` + j} className={style.stars} alt={greyStar} src={greyStar}/>;
         }
 
         return [starsArr, noStarsArr];
@@ -35,10 +35,14 @@ const ProductCard = ({item}) => {
                     </div>
                 </div>
             </div>
-            <div className={style.info}>
+            <div>
                 <p style={{margin: '0'}}>{setRating(item.rating)}</p>
                 <p className={style.id + ' ' + style.discrCard}>#{item.id}</p>
-                <h4 className={style.discrCard}>{item.name}<span>{item.price}₽</span></h4>
+                <div className={style.info}>
+                    <div className={style.discrCard}>{item.name}</div>
+                    <div className={style.price}>{item.price}<span className={style.rub}> ₽</span></div>
+                </div>
+                {/*<p className={style.discrCard}>{item.name}<span>{item.price} ₽</span></p>*/}
             </div>
 
         </div>

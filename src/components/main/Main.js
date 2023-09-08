@@ -15,9 +15,7 @@ const Main = () => {
         <div className={style.main}>
             <Routes>
                 <Route element={<HomePage/>} path={"/"}>
-                    <Route element={<HomePage/>} path={"home"}>
-                        <Route element={<HomePage/>} path={':number'}/>
-                    </Route>
+                    <Route element={<HomePage/>} path={':number'}/>
                 </Route>
                 <Route element={<ProductsPage/>} path={"products"}>
                     <Route element={<ProductsPage/>} path={":sort"}></Route>

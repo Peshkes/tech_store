@@ -1,11 +1,12 @@
 import React from 'react';
 import style from './breadCrumbs.module.css';
-import {Link} from "react-router-dom";
+import {Link, useResolvedPath} from "react-router-dom";
 import {pages} from "../../../utils/constants";
 import {productsArr} from "../../../utils/productsConst";
 import {articles} from "../../../utils/articlesConst";
 
-const BreadCrumbs = ({match}) => {
+const BreadCrumbs = () => {
+    let match = useResolvedPath("").pathname;
     let routeCrumbs = match.split('/');
     let nameCrumbs = routeCrumbs.map(m_item => {
         let tmp = pages.find(f_item => f_item.route === m_item);
@@ -33,7 +34,7 @@ const BreadCrumbs = ({match}) => {
 
     return (
         <span className={style.breadCrumbs}>
-            {routeCrumbs.map((item, index) => index !== length - 1? <span className={style.normal}><Link to={item} key={'crumbs ' + index}>{nameCrumbs[index]}</Link> / </span> : <span className={style.last}><Link to={item} key={'crumbs ' + index}>{nameCrumbs[index]}</Link></span> )}
+            {routeCrumbs.map((item, index) => index !== length - 1? <span className={style.normal} key={'span '+ index }><Link to={item} key={'crumbs ' + index}>{nameCrumbs[index]}</Link> / </span> : <span key={'span '+ index } className={style.last}><Link to={item} key={'crumbs ' + index}>{nameCrumbs[index]}</Link></span> )}
         </span>
 
     );

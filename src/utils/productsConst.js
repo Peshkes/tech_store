@@ -121,6 +121,8 @@ export const productsArr = [
     {
         id: 1,
         name: 'Apple iPhone 14 pro',
+        company: 'Apple',
+        type: 'phones',
         imgSmall: [product1_1, product1_2, product1_3, product1_4],
         imgBig: [product1_1_x2, product1_2_x2, product1_3_x2, product1_4_x2],
         rating: 5,
@@ -130,6 +132,8 @@ export const productsArr = [
     {
         id: 2,
         name: 'Huawei nova Y91 8',
+        company: 'Huawei',
+        type: 'phones',
         imgSmall: [product2_1, product2_2, product2_3, product2_4],
         imgBig: [product2_1_x2, product2_2_x2, product2_3_x2, product2_4_x2],
         rating: 3,
@@ -139,6 +143,8 @@ export const productsArr = [
     {
         id: 3,
         name: 'REALME C55 8',
+        company: 'Realme',
+        type: 'phones',
         imgSmall: [product3_1, product3_2, product3_3, product3_4],
         imgBig: [product3_1_x2, product3_2_x2, product3_3_x2, product3_4_x2],
         rating: 3,
@@ -148,6 +154,8 @@ export const productsArr = [
     {
         id: 4,
         name: 'ADATA XPG Xenia 15KC',
+        company: 'ADATA',
+        type: 'laptops',
         imgSmall: [product4_1, product4_2, product4_3, product4_4],
         imgBig: [product4_1_x2, product4_2_x2, product4_3_x2, product4_4_x2],
         rating: 4,
@@ -157,6 +165,8 @@ export const productsArr = [
     {
         id: 5,
         name: 'GMNG Rush',
+        company: 'GMNG',
+        type: 'laptops',
         imgSmall: [product5_1, product5_2, product5_3, product5_4],
         imgBig: [product5_1_x2, product5_2_x2, product5_3_x2, product5_4_x2],
         rating: 5,
@@ -166,6 +176,8 @@ export const productsArr = [
     {
         id: 6,
         name: 'Apple iPhone 15',
+        company: 'Apple',
+        type: 'phones',
         imgSmall: [product6_1, product6_2, product6_3, product6_4],
         imgBig: [product6_1_x2, product6_2_x2, product6_3_x2, product6_4_x2],
         rating: 5,
@@ -175,6 +187,8 @@ export const productsArr = [
     {
         id: 7,
         name: 'Sony WH-1000XM5',
+        company: 'Sony',
+        type: 'headphones',
         imgSmall: [product7_1, product7_2, product7_3, product7_4],
         imgBig: [product7_1_x2, product7_2_x2, product7_3_x2, product7_4_x2],
         rating: 5,
@@ -184,6 +198,8 @@ export const productsArr = [
     {
         id: 8,
         name: 'HP Omen 17-ck0045ur',
+        company: 'HP',
+        type: 'laptops',
         imgSmall: [product8_1, product8_2, product8_3, product8_4],
         imgBig: [product8_1_x2, product8_2_x2, product8_3_x2, product8_4_x2],
         rating: 4,
@@ -193,6 +209,8 @@ export const productsArr = [
     {
         id: 9,
         name: 'MSI Stealth GS77 12UHS-030RU',
+        company: 'MSI',
+        type: 'laptops',
         imgSmall: [product9_1, product9_2, product9_3, product9_4],
         imgBig: [product9_1_x2, product9_2_x2, product9_3_x2, product9_4_x2],
         rating: 4,
@@ -202,6 +220,8 @@ export const productsArr = [
     {
         id: 10,
         name: 'Apple AirPods Max A2096',
+        company: 'Apple',
+        type: 'headphones',
         imgSmall: [product10_1, product10_2, product10_3, product10_4],
         imgBig: [product10_1_x2, product10_2_x2, product10_3_x2, product10_4_x2],
         rating: 5,
@@ -211,6 +231,8 @@ export const productsArr = [
     {
         id: 11,
         name: 'JBL Tune 110',
+        company: 'JBL',
+        type: 'headphones',
         imgSmall: [product11_1, product11_2, product11_3, product11_4],
         imgBig: [product11_1_x2, product11_2_x2, product11_3_x2, product11_4_x2],
         rating: 4,
@@ -220,6 +242,8 @@ export const productsArr = [
     {
         id: 12,
         name: 'SunWind SW-WH202',
+        company: 'SunWind',
+        type: 'headphones',
         imgSmall: [product12_1, product12_2, product12_3, product12_4],
         imgBig: [product12_1_x2, product12_2_x2, product12_3_x2, product12_4_x2],
         rating: 2,
@@ -229,6 +253,8 @@ export const productsArr = [
     {
         id: 13,
         name: 'Apple MacBook Pro A2485',
+        company: 'Apple',
+        type: 'laptops',
         imgSmall: [product13_1, product13_2, product13_3, product13_4],
         imgBig: [product13_1_x2, product13_2_x2, product13_3_x2, product13_4_x2],
         rating: 5,

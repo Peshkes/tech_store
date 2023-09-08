@@ -25,14 +25,11 @@ const ProductCard = ({item}) => {
     }
 
     return (
-        <div>
-            <div className={style.boxImg}>
-                <img className={style.imageCard} alt={'product' + item.id} src={item.imgSmall[0]}/>
-            </div>
-            {setRating(item.rating)}
-            <p className={style.id}>#{item.id}</p>
-            <h3>{item.name}</h3>
-            <p>{item.price}₽</p>
+        <div className={style.card}>
+            <img className={style.imgCard} alt={'product' + item.id} src={item.imgSmall[0]}/>
+            <p style={{margin: '0'}}>{setRating(item.rating)}</p>
+            <p className={style.id + ' ' + style.discrCard}>#{item.id}</p>
+            <h4 className={style.discrCard}>{item.name}<span>{item.price}₽</span></h4>
         </div>
     );
 };

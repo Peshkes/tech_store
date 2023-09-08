@@ -1,15 +1,33 @@
-.imageCard {
-
+.card {
+    max-width: min-content;
+    margin: 1vw 0;
 }
 
-.id {
-    color: var(--grey-dark-4);
+.imgCard {
+    height: 16vw;
+    width: 16vw;
 }
 
-.boxImg {
-    width: 17vw;
+.discrCard {
+    margin: 0.2vw 0;
 }
 
 .stars {
     padding: 0 0.2vw;
+    height: 2vw
+}
+
+.id {
+    color: var(--grey-dark-4);
+    font-size: 0.9vw;
+}
+
+h4.discrCard{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9vw;
+}
+
+h4.discrCard > span {
+    font-size: 1.2vw;
 }

@@ -5,7 +5,7 @@ import {productsArr} from "../../../utils/productsConst";
 
 const ProductsGallery = ({sorted, count}) => {
     return (
-        <div className={style.productsGallery}>
+        <div className={style.productsGallery} style={{gridTemplateColumns: `repeat(${count / 3}, 1fr)`}}>
             {productsArr.map(item => <ProductCard key={item.id} item={item}/>)}
         </div>
     );

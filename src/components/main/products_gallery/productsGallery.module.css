@@ -1,4 +1,14 @@
+/*.productsGallery{*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
 .productsGallery{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    /*grid-template-columns: repeat(4, 1fr);*/
+    /*grid-auto-rows: min-content;*/
+    /*position: relative;*/
+    /*grid-row-start: 2;*/
+    /*z-index: 2;*/
+    gap: 3vw 4vw;
 }

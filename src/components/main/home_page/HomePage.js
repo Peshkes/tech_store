@@ -17,7 +17,7 @@ const HomePage = () => {
             <Slider/>
             <div className={'narrow'}>
                 <h2>Новые поступления</h2>
-                <ProductsGallery/>
+                <ProductsGallery count={12}/>
             </div>
             <Banner/>
         </div>

@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import style from './articlePage.module.css';
 import {HeaderContext} from "../../../utils/context";
+import Banner from "../banner/Banner";
 
 const ArticlePage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
@@ -12,7 +13,7 @@ const ArticlePage = () => {
 
     return (
         <div className={style.articlePage}>
-
+            <Banner/>
         </div>
     );
 };

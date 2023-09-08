@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import style from './productsPage.module.css';
 import {HeaderContext} from "../../../utils/context";
+import Banner from "../banner/Banner";
 
 const ProductsPage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
@@ -13,6 +14,7 @@ const ProductsPage = () => {
     return (
         <div className={style.productsPage}>
             Products
+            <Banner/>
         </div>
     );
 };

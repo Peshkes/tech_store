@@ -2,6 +2,7 @@ import React from 'react';
 import style from './productCard.module.css';
 import star from '../../../../images/star.svg';
 import greyStar from '../../../../images/grey-star.svg';
+import cart from '../../../../images/cartBlue.svg'
 
 const ProductCard = ({item}) => {
 
@@ -26,10 +27,20 @@ const ProductCard = ({item}) => {
 
     return (
         <div className={style.card}>
-            <img className={style.imgCard} alt={'product' + item.id} src={item.imgSmall[0]}/>
-            <p style={{margin: '0'}}>{setRating(item.rating)}</p>
-            <p className={style.id + ' ' + style.discrCard}>#{item.id}</p>
-            <h4 className={style.discrCard}>{item.name}<span>{item.price}₽</span></h4>
+            <div>
+                <div className={style.images}>
+                    <img className={style.imgCard} alt={'product' + item.id} src={item.imgSmall[0]}/>
+                    <div className={style.cartBox}>
+                        <img className={style.cart} alt={'cart'} src={cart}/>
+                    </div>
+                </div>
+            </div>
+            <div className={style.info}>
+                <p style={{margin: '0'}}>{setRating(item.rating)}</p>
+                <p className={style.id + ' ' + style.discrCard}>#{item.id}</p>
+                <h4 className={style.discrCard}>{item.name}<span>{item.price}₽</span></h4>
+            </div>
+
         </div>
     );
 };

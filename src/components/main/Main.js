@@ -9,10 +9,15 @@ import ProfilePage from "./profilePage/ProfilePage";
 import ErrorPage from "./error_page/ErrorPage";
 
 const Main = () => {
+
     return (
         <div className={style.main}>
             <Routes>
-                <Route element={<HomePage/>} path={"/"}></Route>
+                <Route element={<HomePage/>} path={"/"}>
+                    <Route element={<HomePage/>} path={"home"}>
+                        <Route element={<HomePage/>} path={':number'}/>
+                    </Route>
+                </Route>
                 <Route element={<ProductsPage/>} path={"products"}>
                     <Route element={<ProductsPage/>} path={":sort"}></Route>
                 </Route>

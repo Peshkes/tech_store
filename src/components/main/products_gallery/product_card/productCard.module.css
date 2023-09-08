@@ -6,6 +6,8 @@
 .imgCard {
     height: 16vw;
     width: 16vw;
+    /*position: absolute;*/
+    /*z-index: -1;*/
 }
 
 .discrCard {
@@ -30,4 +32,22 @@ h4.discrCard{
 
 h4.discrCard > span {
     font-size: 1.2vw;
+}
+
+.cart {
+    height: 1vw;
+}
+
+.cartBox {
+    height: 1vw;
+    position: absolute;
+    left: 16vw;
+    top: 15vw;
+    background-color: var(--grey-dark-2);
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+}
+
+.images {
+    position: relative;
 }

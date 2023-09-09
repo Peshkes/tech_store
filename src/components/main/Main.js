@@ -8,6 +8,7 @@ import CartPage from "./cart_page/CartPage";
 import ProfilePage from "./profilePage/ProfilePage";
 import ErrorPage from "./error_page/ErrorPage";
 import ArticlePage from "./article_page/ArticlePage";
+import DocumentPage from "./document_page/documentPage";
 
 const Main = () => {
     return (
@@ -23,10 +24,10 @@ const Main = () => {
                 <Route element={<ProfilePage/>} path={"profile"}>
                     <Route element={<ProfilePage/>} path={":action"}/>
                 </Route>
+                <Route element={<DocumentPage/>} path={"documents/:document"}/>
                 <Route element={<ErrorPage/>} path={"*"}/>
             </Routes>
         </div>
     );
 };
-
 export default Main;

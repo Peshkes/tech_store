@@ -1,3 +1,23 @@
 .cart{
     flex-shrink: 0;
+    position: relative;
+    text-decoration: none;
+}
+.icon{
+    font-size: 10px;
+    width: 12px;
+    height: 12px;
+    padding: 3px;
+    color: white;
+    background-color: var(--accent-color-1-4);
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 20%;
+}
+.active img{
+    filter: invert(36%) sepia(96%) saturate(3010%) hue-rotate(212deg) brightness(104%) contrast(101%);
+    -webkit-filter: invert(36%) sepia(96%) saturate(3010%) hue-rotate(212deg) brightness(104%) contrast(101%);
 }

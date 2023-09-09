@@ -4,14 +4,36 @@
 }
 
 .imgCard {
+
+    /*background-size: contain;*/
+    background-repeat: no-repeat;
+    background-position: center;
     height: 16vw;
     width: 16vw;
-    /*position: absolute;*/
-    /*z-index: -1;*/
 }
 
 .discrCard {
     margin: 0.2vw 0;
+}
+
+.images {
+    position: relative;
+}
+
+.cartBox {
+    height: 1vw;
+    position: absolute;
+    left: 14vw;
+    top: 14vw;
+    background-color: var(--grey-dark-2);
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+    display: flex;
+    align-items: center;
+}
+
+.cart {
+    height: 1vw;
 }
 
 .stars {
@@ -43,23 +65,5 @@
 
 .rub {
     color: var(--grey-dark-4)
-}
-
-.cart {
-    height: 1vw;
-}
-
-.cartBox {
-    height: 1vw;
-    position: absolute;
-    left: 16vw;
-    top: 15vw;
-    background-color: var(--grey-dark-2);
-    border-radius: 0.5vw;
-    padding: 0.5vw;
-}
-
-.images {
-    position: relative;
 }
 

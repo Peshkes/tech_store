@@ -7,14 +7,14 @@ import {Link, useParams} from "react-router-dom";
 
 const ProductsGallery = ({sorted, count}) => {
 
-    const [isStart, setStart] = useState(false);
-    const [isFinish, setFinish] = useState(false);
     const pageNumber = useParams();
 
-    const [currentPage, setCurrentPage] = useState(+pageNumber.number || 1);
+    const [currentPage, setCurrentPage] = useState(+pageNumber.page_number || 1);
 
+    //constants for pagination
+    const [isStart, setStart] = useState(false);
+    const [isFinish, setFinish] = useState(false);
     const totalCountProducts = productsArr.length;
-
     const lastProductIndex = currentPage * count;
     const firstProductIndex = lastProductIndex - count;
     const currentProductPage = productsArr.slice(firstProductIndex, lastProductIndex);
@@ -42,19 +42,22 @@ const ProductsGallery = ({sorted, count}) => {
     }
 
     return (
-        <div className={style.productsGallery} style={{gridTemplateColumns: `repeat(${count / 3}, 1fr)`}}>
-            {currentProductPage.map(item => <ProductCard key={item.id} item={item}/>)}
+        //style={{gridTemplateColumns: `repeat(${count / 3}, 1fr)`}
+        <div>
+            <div className={style.productsGallery}>
+                {currentProductPage.map(item => <ProductCard key={item.id} item={item}/>)}
+            </div>
             <div>
                 {isStart ? '' :
-                <Link to={`?p=${currentPage - 1}`}>
-                    <button id={'prevent'} onClick={event => changePage(event)}>Prev</button>
-                </Link>}
+                    <Link to={`?p=${currentPage - 1}`}>
+                        <button id={'prevent'} onClick={event => changePage(event)}>Prev</button>
+                    </Link>}
                 <Pagination count={count} totalCountProducts={totalCountProducts}
                             paginate={paginate}/>
                 {isFinish ? '' :
-                <Link to={`?p=${currentPage + 1}`}>
-                    <button id={'next'} onClick={event => changePage(event)}>Next</button>
-                </Link>}
+                    <Link to={`?p=${currentPage + 1}`}>
+                        <button id={'next'} onClick={event => changePage(event)}>Next</button>
+                    </Link>}
             </div>
         </div>
 

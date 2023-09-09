@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import style from './main.module.css';
 import {Route, Routes} from "react-router-dom";
 import BlogPage from "./blog_page/BlogPage";
@@ -15,7 +15,7 @@ const Main = () => {
         <div className={style.main}>
             <Routes>
                 <Route element={<HomePage/>} path={"/"}>
-                    <Route element={<HomePage/>} path={':number'}/>
+                    <Route element={<HomePage/>} path={':page_number'}/>
                 </Route>
                 <Route element={<ProductsPage/>} path={"products"}>
                     <Route element={<ProductsPage/>} path={":sort"}></Route>

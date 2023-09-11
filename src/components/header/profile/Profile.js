@@ -2,13 +2,13 @@ import style from './prodile.module.css';
 import React from 'react';
 import profileBlack from "../../../images/header/profileBlack.svg";
 import profileWhite from "../../../images/header/profileWhite.svg";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Profile = ({headerStyle}) => {
     return (
-        <Link className={style.profile} to={'profile/auth'}>
+        <NavLink to={'profile/auth'} className={({isActive}) => isActive ? style["active"] + ' ' + style.profile : style.profile}>
             {headerStyle === 'white' ? <img src={profileBlack} alt="profile"/> : <img src={profileWhite} alt="profile"/>}
-        </Link>
+        </NavLink>
     );
 }
 

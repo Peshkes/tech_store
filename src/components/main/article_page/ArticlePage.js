@@ -19,13 +19,6 @@ const ArticlePage = () => {
             navigate('/blog');
         }
     }, []);
-    let date;
-    if (articleObject) {
-        date = articleObject.date.toLocaleDateString().split('/');
-        [date[0], date[1]] = [date[1], date[0]];
-        date = date.join('.');
-    }
-
 
     return (
         <div className={style.articlePage}>
@@ -35,7 +28,7 @@ const ArticlePage = () => {
                     <h3>{articleObject && articleObject.title}</h3>
                     <div className={style.meta}>
                         <span>{articleObject && articleObject.author}</span>
-                        <span>{date}</span>
+                        <span>{articleObject && articleObject.date.toLocaleDateString('ru-ru')}</span>
                     </div>
                     <p className={style.subtitle}>{articleObject && articleObject.subtitle}</p>
                     <img src={articleObject && articleObject.image} alt={articleObject && articleObject.title}/>

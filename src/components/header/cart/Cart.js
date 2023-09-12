@@ -7,9 +7,8 @@ import {CartContext} from "../../../utils/context";
 
 const Cart = ({headerStyle}) => {
     const {cart} = useContext(CartContext);
-    console.log(cart);
     return (
-            <NavLink to={'cart'} className={({isActive}) => isActive ? style["active"] + ' ' + style.cart : style.cart}>
+            <NavLink to={'cart'} className={({isActive}) => isActive ? style.cart + ' ' + style["active"] : style.cart}>
                 {cart.length !== 0 ? <div className={style.icon}>{cart.length}</div> : null}
                 <img src={headerStyle === 'white' ? cartBlack : cartWhite} alt="cart"/>
             </NavLink>

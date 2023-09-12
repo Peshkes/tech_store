@@ -1,15 +1,19 @@
 import React from 'react';
 import style from './breadCrumbs.module.css';
 import {Link, useResolvedPath} from "react-router-dom";
-import {pages} from "../../../utils/constants";
+import {documents, pages} from "../../../utils/constants";
 import {productsArr} from "../../../utils/productsConst";
 import {articles} from "../../../utils/articlesConst";
 
 const BreadCrumbs = () => {
     let match = useResolvedPath("").pathname;
     let routeCrumbs = match.split('/');
+    if (routeCrumbs[routeCrumbs.length - 1] === '')
+        routeCrumbs.pop();
+
+    const allPages = pages.concat(documents);
     let nameCrumbs = routeCrumbs.map(m_item => {
-        let tmp = pages.find(f_item => f_item.route === m_item);
+        let tmp = allPages.find(f_item => f_item.route === m_item);
         return tmp ? tmp.name : m_item;
     });
     let length = routeCrumbs.length;

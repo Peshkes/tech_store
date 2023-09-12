@@ -8,6 +8,9 @@ import {articles} from "../../../utils/articlesConst";
 const BreadCrumbs = () => {
     let match = useResolvedPath("").pathname;
     let routeCrumbs = match.split('/');
+    if (routeCrumbs[routeCrumbs.length - 1] === '')
+        routeCrumbs.pop();
+
     let nameCrumbs = routeCrumbs.map(m_item => {
         let tmp = pages.find(f_item => f_item.route === m_item);
         return tmp ? tmp.name : m_item;

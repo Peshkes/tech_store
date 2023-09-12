@@ -23,10 +23,10 @@
 .cartBox {
     height: 1vw;
     position: absolute;
-    left: 14vw;
-    top: 14vw;
-    background-color: var(--grey-dark-2);
-    border-radius: 0.5vw;
+    right: 0.5vw;
+    bottom: 0.5vw;
+    background-color: var(--grey-light-5);
+    border-radius: 10px;
     padding: 0.5vw;
     display: flex;
     align-items: center;
@@ -50,8 +50,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 3vw;
 }
 
+.link {
+    text-decoration: none;
+    color: black;
+}
 
 .discrCard {
     font-size: 1vw;

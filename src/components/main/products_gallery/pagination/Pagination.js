@@ -37,19 +37,21 @@ const Pagination = ({pageNumber, count, totalCountProducts, pagesCount}) => {
         <div className={style.paginationWrapper}>
             <div className={style.paginationBox}>
                     {!isPrevent.current ? '' :
-                        <Link className={style.btn} to={`p=${pageNumber - 1}`}>
+                        <Link className={style.btn + ' ' + style.btnLeft} to={`p=${pageNumber - 1}`}>
                             <img alt={'prevent'} src={preventButton}/>
                         </Link>}
 
                     {pageNumbers.map(number =>
-                        <Link className={style.numbers + ` ${number === pageNumber ? style.active : ''}`}
+                        <Link key={'link' + number} className={style.numbers + ` ${number === pageNumber ? style.active : ''}` +
+                        ` ${number === pageNumber && number === 1 ? style.btnLeft : ''}` +
+                        ` ${number === pageNumber && number === pagesCount ? style.btnRight: ''}`}
                               to={`p=${number}`}>
                             <div key={number}>{number}</div>
                         </Link>
                     )}
 
                     {!isNext.current ? '' :
-                        <Link className={style.btn} to={`p=${pageNumber + 1}`}>
+                        <Link className={style.btn + ' ' + style.btnRight} to={`p=${pageNumber + 1}`}>
                             <img alt={'next'} src={nextButton}/>
                         </Link>}
             </div>

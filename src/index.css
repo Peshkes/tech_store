@@ -11,10 +11,13 @@ body {
     --grey-dark-3: #0000004D;
     --grey-dark-4: #00000099;
 
+
     --grey-light-1: #FFFFFF1A;
     --grey-light-2: #FFFFFF33;
     --grey-light-3: #FFFFFF4D;
     --grey-light-4: #FFFFFF80;
+
+    --grey-light-5: #eeeeee;
 
     --grey-slider: rgba(238, 237, 240, 0.85);
 

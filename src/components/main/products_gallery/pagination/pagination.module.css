@@ -7,14 +7,16 @@
 .paginationBox {
     display: flex;
     justify-content: center;
-    border: 0.1vw solid var(--grey-dark-2);
+    border: 1px solid var(--grey-dark-2);
     border-radius: 10px;
+
 }
 
 .numbers, .btn {
     display: flex;
     justify-content: center;
     padding: 0.8vw 1vw;
+    height: 1.1vw;
     font-size: 1vw;
 }
 
@@ -27,10 +29,19 @@
 .btn:hover {
     color: white;
     background-color:  var(--grey-dark-3);
-    background-clip: border-box;
+    /*border-radius: 0.4vw;*/
 }
 
 .active {
     color: white;
     background-color: var(--accent-color-1-4)
+
+}
+
+.btnLeft {
+    border-radius: 10px 0 0 10px;
+}
+
+.btnRight {
+    border-radius: 0 10px 10px 0;
 }

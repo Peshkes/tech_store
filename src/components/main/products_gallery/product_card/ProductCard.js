@@ -26,15 +26,17 @@ const ProductCard = ({item}) => {
         <div className={style.card}>
             <div>
                 <div className={style.images}>
-                    {
+                    <Link to={`product/${item.id}`}>
+                        {
                         item.type === 'laptops' ?
-                        <div className={style.imgCard}
-                         style={{backgroundImage: `url(${item.imgSmall[0]})`, backgroundSize: 'contain'}}>
-                        </div> :
-                        <div className={style.imgCard}
-                             style={{backgroundImage: `url(${item.imgSmall[0]})`, backgroundSize: '60%'}}>
-                        </div>
+                            <div className={style.imgCard}
+                                 style={{backgroundImage: `url(${item.imgSmall[0]})`, backgroundSize: 'contain'}}>
+                            </div> :
+                            <div className={style.imgCard}
+                                 style={{backgroundImage: `url(${item.imgSmall[0]})`, backgroundSize: '60%'}}>
+                            </div>
                     }
+                    </Link>
                     <Link to={'cart'}>
                         <div className={style.cartBox}>
                             <img className={style.cart} alt={'cart'} src={cart}/>
@@ -46,7 +48,9 @@ const ProductCard = ({item}) => {
                 <p style={{margin: '0'}}>{setRating(item.rating)}</p>
                 <p className={style.id + ' ' + style.discrCard}>#{item.id}</p>
                 <div className={style.info}>
-                    <div className={style.discrCard}>{item.name}</div>
+                    <div className={style.discrCard + ' ' + style.name}>
+                            <Link className={style.link} to={`product/${item.id}`}>{item.name}</Link>
+                    </div>
                     <div className={style.price}>{item.price}<span className={style.rub}> ₽</span></div>
                 </div>
             </div>

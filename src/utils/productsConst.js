@@ -117,6 +117,15 @@ import product13_4_x2 from '../images/products/laptops/13/13-4-x2.webp';
 
 
 
+//rating, company, price, type
+//products/rating=3-5&company=apple&price=0-300000&type=phones%laptops%headphones
+// разбить на
+
+//cart: {
+// id: 2,
+// count: 1
+// }
+
 export const productsArr = [
     {
         id: 1,

@@ -24,7 +24,7 @@ const Main = () => {
                 <Route element={<ProfilePage/>} path={"profile"}>
                     <Route element={<ProfilePage/>} path={":action"}/>
                 </Route>
-                <Route element={<DocumentPage/>} path={"documents/:document"}/>
+                <Route element={<DocumentPage/>} path={":document"}/>
                 <Route element={<ErrorPage/>} path={"*"}/>
             </Routes>
         </div>

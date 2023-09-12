@@ -9,7 +9,7 @@ const BreadCrumbs = () => {
     let match = useResolvedPath("").pathname;
     let routeCrumbs = match.split('/');
     let length = routeCrumbs.length;
-    console.log(routeCrumbs);
+
     if(routeCrumbs[length - 2] === 'product')
         routeCrumbs[length - 2] += 's';
 

@@ -22,13 +22,13 @@ const Footer = () => {
                     </div>
                     <div className={style.t3}>
                         <h4>Помощь</h4>
-                        <Link to={'return'}>Возврат</Link>
-                        <Link to={'payment_methods'}>Способы оплаты</Link>
+                        <Link to={'documents/return'}>Возврат</Link>
+                        <Link to={'documents/payment_methods'}>Способы оплаты</Link>
                     </div>
                     <div className={style.t4}>
                         <h4>Документы</h4>
-                        <Link to={'privacy_policy'}>Политика<br/>конфиденциальности</Link>
-                        <Link to={'terms_of_services'}>Условия<br/>предоставления услуг</Link>
+                        <Link to={'documents/privacy_policy'}>Политика<br/>конфиденциальности</Link>
+                        <Link to={'documents/terms_of_services'}>Условия<br/>предоставления услуг</Link>
                     </div>
                     <div className={style.t5}>
                         <h4>Контакты</h4>

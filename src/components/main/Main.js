@@ -33,7 +33,7 @@ const Main = () => {
                 <Route element={<ProfilePage/>} path={"profile/:action"}/>
 
                 <Route element={<CartPage/>} path={"cart"}/>
-                <Route element={<DocumentPage/>} path={":document"}/>
+                <Route element={<DocumentPage/>} path={"documents/:document"}/>
                 <Route element={<ErrorPage/>} path={"*"}/>
             </Routes>
         </div>

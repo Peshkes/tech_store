@@ -17,7 +17,8 @@ export const pages = [
     {name: 'Корзина', route: 'cart'},
     {name: 'Товары', route: 'products'},
     {name: 'Авторизация', route: 'auth'},
-    {name: 'Регистрация', route: 'reg'}
+    {name: 'Регистрация', route: 'reg'},
+    {name: 'Документы', route: 'documents'}
 ];
 
 export const profileTypes = ['auth', 'reg'];

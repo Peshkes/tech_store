@@ -1,20 +1,21 @@
-/*.productsGallery{*/
-/*    display: flex;*/
-/*    flex-wrap: wrap;*/
-/*}*/
-
 .productsGallery{
-
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 
-    /*grid-template-columns: repeat(4, 1fr);*/
-    /*grid-auto-rows: min-content;*/
-    /*position: relative;*/
-    /*grid-row-start: 2;*/
-    /*z-index: 2;*/
+}
 
-    /*display: grid;*/
-    /*gap: 3vw 4vw;*/
+.paginationWrapper {
+    display: flex;
+    justify-content: center;
+    padding: 1vw 0 5vw 0;
+}
+
+.paginationBox {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--grey-dark-2);
+    border-radius: 0.4vw;
+    width: max-content;
+
 }

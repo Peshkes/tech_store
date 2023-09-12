@@ -1,63 +1,43 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from './productsGallery.module.css';
 import ProductCard from "./product_card/ProductCard";
 import {productsArr} from "../../../utils/productsConst";
 import Pagination from "./pagination/Pagination";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 
 const ProductsGallery = ({sorted, count}) => {
 
-    const pageNumber = useParams();
+    //current page calculation
+    const {page_number} = useParams();
+    const totalCountProducts = productsArr.length;
+    const pagesCount = Math.ceil(totalCountProducts / count);
+    let pageNumber = 1;
 
-    const [currentPage, setCurrentPage] = useState(+pageNumber.page_number || 1);
+    if (page_number && page_number.includes('=')) {
+        let temp = page_number.split('=');
+        if (temp.length === 2 && temp[0] === 'p') {
+            temp = +temp[1];
+            if (temp && temp <= pagesCount) {
+                pageNumber = temp;
+            }
+        }
+    }
 
     //constants for pagination
-    const [isStart, setStart] = useState(false);
-    const [isFinish, setFinish] = useState(false);
-    const totalCountProducts = productsArr.length;
-    const lastProductIndex = currentPage * count;
+    const lastProductIndex = pageNumber * count;
     const firstProductIndex = lastProductIndex - count;
     const currentProductPage = productsArr.slice(firstProductIndex, lastProductIndex);
 
-    const paginate = pageNumber => setCurrentPage(pageNumber);
-    const changePage = (event) => {
-
-        switch (event.target.id) {
-            case 'prevent' : {
-
-                if (currentPage > 1) {
-                    setCurrentPage(prevState => prevState - 1)
-                }
-                return;
-
-            }
-            case 'next': {
-                if (currentPage < Math.ceil( totalCountProducts / count)) {
-                    setCurrentPage(prevState => prevState + 1)
-                }
-                return;
-            }
-        }
-
-    }
-
     return (
-        //style={{gridTemplateColumns: `repeat(${count / 3}, 1fr)`}
         <div>
             <div className={style.productsGallery}>
                 {currentProductPage.map(item => <ProductCard key={item.id} item={item}/>)}
             </div>
-            <div>
-                {isStart ? '' :
-                    <Link to={`?p=${currentPage - 1}`}>
-                        <button id={'prevent'} onClick={event => changePage(event)}>Prev</button>
-                    </Link>}
-                <Pagination count={count} totalCountProducts={totalCountProducts}
-                            paginate={paginate}/>
-                {isFinish ? '' :
-                    <Link to={`?p=${currentPage + 1}`}>
-                        <button id={'next'} onClick={event => changePage(event)}>Next</button>
-                    </Link>}
+            <div className={style.paginationWrapper}>
+                <div className={style.paginationBox}>
+                    <Pagination pageNumber={pageNumber} count={count}
+                                totalCountProducts={totalCountProducts} pagesCount={pagesCount}/>
+                </div>
             </div>
         </div>
 

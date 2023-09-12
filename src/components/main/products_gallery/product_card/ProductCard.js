@@ -3,12 +3,9 @@ import style from './productCard.module.css';
 import star from '../../../../images/starBlue.svg';
 import greyStar from '../../../../images/starGrey.svg';
 import cart from '../../../../images/cartBlue.svg';
+import {Link} from "react-router-dom";
 
 const ProductCard = ({item}) => {
-
-    // let count = 4;
-
-    //style={{width: `calc(100% / ${count})`}}
 
     const setRating = (countStars) => {
 
@@ -38,9 +35,11 @@ const ProductCard = ({item}) => {
                              style={{backgroundImage: `url(${item.imgSmall[0]})`, backgroundSize: '60%'}}>
                         </div>
                     }
-                    <div className={style.cartBox}>
-                        <img className={style.cart} alt={'cart'} src={cart}/>
-                    </div>
+                    <Link to={'cart'}>
+                        <div className={style.cartBox}>
+                            <img className={style.cart} alt={'cart'} src={cart}/>
+                        </div>
+                    </Link>
                 </div>
             </div>
             <div>

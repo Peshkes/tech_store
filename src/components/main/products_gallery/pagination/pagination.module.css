@@ -1,6 +1,16 @@
-.numbersBox {
+.paginationWrapper {
     display: flex;
     justify-content: center;
+    padding: 1vw 0 5vw 0;
+}
+
+.paginationBox {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--grey-dark-2);
+    border-radius: 0.4vw;
+    width: max-content;
+
 }
 
 .numbers, .btn {

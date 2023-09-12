@@ -9,6 +9,9 @@ const Pagination = ({pageNumber, count, totalCountProducts, pagesCount}) => {
 
     const isPrevent = useRef();
     const isNext = useRef();
+    const isDotsFirst = useRef();
+    const isDotsMedium = useRef();
+    const isDotsLast = useRef();
 
     const pageNumbers = [];
 
@@ -16,6 +19,9 @@ const Pagination = ({pageNumber, count, totalCountProducts, pagesCount}) => {
         pageNumbers.push(i);
     }
 
+
+
+    //arrows right and left
     if (pageNumber !== 1 && pageNumber !== Math.ceil(totalCountProducts / count)) {
         isPrevent.current = true;
         isNext.current = true
@@ -28,25 +34,25 @@ const Pagination = ({pageNumber, count, totalCountProducts, pagesCount}) => {
     }
 
     return (
-        <div className={style.numbersBox}>
+        <div className={style.paginationWrapper}>
+            <div className={style.paginationBox}>
+                    {!isPrevent.current ? '' :
+                        <Link className={style.btn} to={`p=${pageNumber - 1}`}>
+                            <img alt={'prevent'} src={preventButton}/>
+                        </Link>}
 
-            {!isPrevent.current ? '' :
-                <Link className={style.btn} to={`p=${pageNumber - 1}`}>
-                    <img alt={'prevent'} src={preventButton}/>
-                </Link>}
-
-            {pageNumbers.map(number =>
-                    <Link className={style.numbers + ` ${number === pageNumber ? style.active : ''}`}
+                    {pageNumbers.map(number =>
+                        <Link className={style.numbers + ` ${number === pageNumber ? style.active : ''}`}
                               to={`p=${number}`}>
-                        <div key={number}>{number}</div>
-                    </Link>
-            )}
+                            <div key={number}>{number}</div>
+                        </Link>
+                    )}
 
-            {!isNext.current ? '' :
-                <Link className={style.btn} to={`p=${pageNumber + 1}`}>
-                    <img alt={'next'} src={nextButton}/>
-                </Link>}
-
+                    {!isNext.current ? '' :
+                        <Link className={style.btn} to={`p=${pageNumber + 1}`}>
+                            <img alt={'next'} src={nextButton}/>
+                        </Link>}
+            </div>
         </div>
     );
 };

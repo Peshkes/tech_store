@@ -15,12 +15,12 @@ export const pages = [
     {name: 'Профиль', route: 'profile'},
     {name: 'Оформление заказа', route: 'checkout'},
     {name: 'Корзина', route: 'cart'},
-    {name: 'Товары', route: 'products'}
+    {name: 'Товары', route: 'products'},
+    {name: 'Авторизация', route: 'auth'},
+    {name: 'Регистрация', route: 'reg'}
 ];
 
 export const profileTypes = ['auth', 'reg'];
-// {name: 'Авторизация', route: 'auth'},
-// {name: 'Регистрация', route: 'reg'}
 
 
 export const documents = [

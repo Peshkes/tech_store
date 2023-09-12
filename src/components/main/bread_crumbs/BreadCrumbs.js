@@ -8,7 +8,12 @@ import {articles} from "../../../utils/articlesConst";
 const BreadCrumbs = () => {
     let match = useResolvedPath("").pathname;
     let routeCrumbs = match.split('/');
-    if (routeCrumbs[routeCrumbs.length - 1] === '')
+    let length = routeCrumbs.length;
+    console.log(routeCrumbs);
+    if(routeCrumbs[length - 2] === 'product')
+        routeCrumbs[length - 2] += 's';
+
+    if (routeCrumbs[length - 1] === '')
         routeCrumbs.pop();
 
     const allPages = pages.concat(documents);
@@ -16,7 +21,7 @@ const BreadCrumbs = () => {
         let tmp = allPages.find(f_item => f_item.route === m_item);
         return tmp ? tmp.name : m_item;
     });
-    let length = routeCrumbs.length;
+
 
     if (parseInt(nameCrumbs[length - 1])) {
         if (routeCrumbs[length - 2] === 'products') {

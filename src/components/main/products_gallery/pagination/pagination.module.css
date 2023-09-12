@@ -7,17 +7,14 @@
 .paginationBox {
     display: flex;
     justify-content: center;
-    border: 1px solid var(--grey-dark-2);
-    border-radius: 0.4vw;
-    width: max-content;
-
+    border: 0.1vw solid var(--grey-dark-2);
+    border-radius: 10px;
 }
 
 .numbers, .btn {
     display: flex;
     justify-content: center;
     padding: 0.8vw 1vw;
-    height: 1.1vw;
     font-size: 1vw;
 }
 
@@ -30,11 +27,10 @@
 .btn:hover {
     color: white;
     background-color:  var(--grey-dark-3);
-    border-radius: 0.4vw;
+    background-clip: border-box;
 }
 
 .active {
     color: white;
     background-color: var(--accent-color-1-4)
-
 }

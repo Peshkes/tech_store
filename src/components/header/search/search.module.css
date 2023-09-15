@@ -1,17 +1,25 @@
 .search{
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 15px;
+    position: relative;
 }
 .search input{
+    margin-right: -12px;
+    box-sizing: border-box;
+    width: 100%;
     background: initial;
     min-width: 150px;
-    width: Calc(100% - 30px);
     padding: 11px 11px 11px 36px;
     outline:none;
     border-radius: 10px;
+}
+.search input::-webkit-search-cancel-button {
+    /*-webkit-appearance: none;*/
+    /*background-image: url("../../../images/x.svg");*/
+    cursor: pointer;
 }
 .black input {
     border: 1px var(--grey-light-2) solid;
@@ -31,4 +39,41 @@
 .search img {
     margin-right: -30px;
     z-index: 1;
+}
+.result{
+    border: 1px var(--grey-dark-2) solid;
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    background: white;
+    top: 70px;
+    z-index: 10;
+    padding: 1vw;
+}
+.result a{
+    text-decoration: none;
+}
+.resultItem{
+    display: flex;
+    padding: 0.5vw 2vw;
+    align-items: center;
+    transition: 0.5s;
+    color: black;
+}
+.resultItem:hover{
+    transform: scale(1.1);
+}
+.resultItem div{
+    width: 6vw;
+    height: 6vw;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.resultItem p{
+    font-size: 1vw;
+    margin-left: 1vw;
+}
+.resultItem .article{
+    width: 15vw;
+    height: 8vw;
 }

@@ -9,10 +9,12 @@ import {CartContext} from "./utils/context";
 function App() {
     const [headerStyle, setHeaderStyle] = useState('white');
     const [cart] = useState([]);
+    const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
     return (
         <div className="App">
-            <CartContext.Provider value={{cart}}>
+            {isOverlayOpen && <div className={'overlay'} onClick={()=>setIsOverlayOpen(false)}/> }
+            <CartContext.Provider value={{cart, setIsOverlayOpen, isOverlayOpen}}>
                 <Header headerStyle={headerStyle}/>
                 <HeaderContext.Provider value={{setHeaderStyle}}>
                     <Main/>

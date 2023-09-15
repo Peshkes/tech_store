@@ -8,3 +8,11 @@ h2{
     width: 100%;
     padding: 0 12vw;
 }
+.overlay{
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}

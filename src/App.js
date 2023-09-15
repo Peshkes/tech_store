@@ -12,12 +12,13 @@ function App() {
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
     const addToCart = (obj) => {
         const index = cart.findIndex(item => item.id === obj.id)
-        let tmp = cart;
         if (index === -1)
-            tmp.push(obj);
-        else
-            tmp[index].count += obj.count;
-        setCart(tmp);
+            setCart([...cart, obj]);
+        else{
+            const tmpCart = cart;
+            tmpCart[index].count += obj.count;
+            setCart(tmpCart);
+        }
     }
 
     return (

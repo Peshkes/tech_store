@@ -9,7 +9,7 @@ const Cart = ({headerStyle}) => {
     const {cart} = useContext(CartContext);
     return (
             <NavLink to={'cart'} className={({isActive}) => isActive ? style.cart + ' ' + style["active"] : style.cart}>
-                {cart.length !== 0 ? <div className={style.icon}>{cart.length}</div> : null}
+                {cart.length !== 0 && <div className={style.icon}>{cart.length}</div>}
                 <img src={headerStyle === 'white' ? cartBlack : cartWhite} alt="cart"/>
             </NavLink>
     );

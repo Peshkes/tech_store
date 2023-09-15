@@ -2,7 +2,7 @@
     position: relative;
     display: none;
 }
-.slide div{
+.slide > div:first-of-type{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -22,9 +22,37 @@
     margin-top: 10px;
     top: 15%;
 }
-.slide button{
+.buttonBlock{
+    padding: 5vw;
     position: absolute;
-    bottom: 2%;
-    left: 5%;
-    padding: 0 20px;
+    left: 0;
+    bottom: 0;
+    width: 20vw;
+    display: flex;
+    align-items: center;
 }
+.buttonBlock button{
+    background-color: var(--accent-color-1-4);
+    padding: 1vw 3vw;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1.2vw;
+    cursor: pointer;
+}
+.buttonBlock button:active{
+    background-color: var(--accent-color-1-3);
+}
+.buttonBlock a{
+    text-decoration: none;
+    font-size: 1.2vw;
+    color: white;
+    margin-left: 2vw;
+}
+
+/*.slide button{*/
+/*    position: absolute;*/
+/*    bottom: 2%;*/
+/*    left: 5%;*/
+/*    padding: 0 20px;*/
+/*}*/

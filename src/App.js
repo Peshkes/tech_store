@@ -8,15 +8,16 @@ import {CartContext} from "./utils/context";
 
 function App() {
     const [headerStyle, setHeaderStyle] = useState('white');
-    const [cart] = useState([]);
+    const [cart, setCart] = useState([]);
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-//[{id, count}, ...]
     const addToCart = (obj) => {
         const index = cart.findIndex(item => item.id === obj.id)
+        let tmp = cart;
         if (index === -1)
-            cart.push(obj);
+            tmp.push(obj);
         else
-            cart[index].count += obj.count;
+            tmp[index].count += obj.count;
+        setCart(tmp);
     }
 
     return (

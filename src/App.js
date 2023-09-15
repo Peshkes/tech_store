@@ -10,11 +10,19 @@ function App() {
     const [headerStyle, setHeaderStyle] = useState('white');
     const [cart] = useState([]);
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+//[{id, count}, ...]
+    const addToCart = (obj) => {
+        const index = cart.findIndex(item => item.id === obj.id)
+        if (index === -1)
+            cart.push(obj);
+        else
+            cart[index].count += obj.count;
+    }
 
     return (
         <div className="App">
             {isOverlayOpen && <div className={'overlay'} onClick={()=>setIsOverlayOpen(false)}/> }
-            <CartContext.Provider value={{cart, setIsOverlayOpen, isOverlayOpen}}>
+            <CartContext.Provider value={{cart, addToCart, setIsOverlayOpen, isOverlayOpen}}>
                 <Header headerStyle={headerStyle}/>
                 <HeaderContext.Provider value={{setHeaderStyle}}>
                     <Main/>

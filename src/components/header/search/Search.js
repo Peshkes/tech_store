@@ -21,6 +21,8 @@ const Search = ({headerStyle}) => {
         else if (isActive && text.length === 0){
             setIsOverlayOpen(false);
             setIsActive(false);
+        } else {
+            setIsOverlayOpen(true);
         }
 
         setResultProducts(productsArr.filter(item => item.name.toUpperCase().includes(text)).slice(0,3));

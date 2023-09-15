@@ -11,9 +11,11 @@ const Search = ({headerStyle}) => {
     const [isActive, setIsActive] = useState(false);
     const [resultProducts, setResultProducts] = useState([]);
     const [resultArticles, setResultArticles] = useState([]);
+    const [text, setText] = useState();
     const {isOverlayOpen, setIsOverlayOpen} = useContext(CartContext);
     const changeHandler = event => {
         const text = event.target.value.trim().toUpperCase();
+        setText(text)
         if (!isActive && text.length > 0){
             setIsOverlayOpen(true);
             setIsActive(true);
@@ -21,9 +23,8 @@ const Search = ({headerStyle}) => {
         else if (isActive && text.length === 0){
             setIsOverlayOpen(false);
             setIsActive(false);
-        } else {
+        } else if (isActive && text.length > 0)
             setIsOverlayOpen(true);
-        }
 
         setResultProducts(productsArr.filter(item => item.name.toUpperCase().includes(text)).slice(0,3));
         setResultArticles(articles.filter(item => item.title.toUpperCase().includes(text)).slice(0,2));
@@ -32,12 +33,12 @@ const Search = ({headerStyle}) => {
     return (
         <div className={style.search + ' ' + style[headerStyle]}>
             <img src={headerStyle === 'white' ? searchBlack : searchWhite} alt="search"/>
-            <input type="search" placeholder={'Поиск'} onChange={changeHandler}/>
+            <input type="search" placeholder={'Поиск'} onChange={changeHandler} value={text}/>
             {isActive && isOverlayOpen &&
                 <div className={style.result}>
-                    {resultProducts.length !== 0 && resultProducts.map((item, index) => <SearchResultItem key={index + ' result'} setIsOverlayOpen={setIsOverlayOpen} setIsActive={setIsActive} result={item}/>)}
+                    {resultProducts.length !== 0 && resultProducts.map((item, index) => <SearchResultItem key={index + ' result'} setIsOverlayOpen={setIsOverlayOpen} setIsActive={setIsActive} setText={setText} result={item}/>)}
                     {resultProducts.length !== 0 && resultArticles.length !== 0 && <hr/>}
-                    {resultArticles.length !== 0 && resultArticles.map((item, index) => <SearchResultItem key={index + ' result'} setIsOverlayOpen={setIsOverlayOpen} setIsActive={setIsActive} result={item}/>)}
+                    {resultArticles.length !== 0 && resultArticles.map((item, index) => <SearchResultItem key={index + ' result'} setIsOverlayOpen={setIsOverlayOpen} setIsActive={setIsActive} setText={setText} result={item}/>)}
                     {resultProducts.length === 0 && resultArticles.length === 0 && <p>Запрос не найден ;(</p>}
                 </div>
             }

@@ -14,7 +14,7 @@ const Search = ({headerStyle}) => {
     const [text, setText] = useState();
     const {isOverlayOpen, setIsOverlayOpen} = useContext(CartContext);
     const changeHandler = event => {
-        const text = event.target.value.trim();
+        const text = event.target.value;
         setText(text)
         if (!isActive && text.length > 0){
             setIsOverlayOpen(true);
@@ -26,8 +26,8 @@ const Search = ({headerStyle}) => {
         } else if (isActive && text.length > 0)
             setIsOverlayOpen(true);
 
-        setResultProducts(productsArr.filter(item => item.name.toLowerCase().includes(text.toLowerCase())).slice(0,3));
-        setResultArticles(articles.filter(item => item.title.toLowerCase().includes(text.toLowerCase())).slice(0,2));
+        setResultProducts(productsArr.filter(item => item.name.toLowerCase().includes(text.toLowerCase().trim())).slice(0,3));
+        setResultArticles(articles.filter(item => item.title.toLowerCase().includes(text.toLowerCase().trim())).slice(0,2));
     }
 
     return (

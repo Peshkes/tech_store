@@ -1,8 +1,8 @@
 import React, {useRef} from 'react';
 import {Link} from "react-router-dom";
 import style from './pagination.module.css';
-import nextButton from '../../../../images/nextButton.svg';
-import preventButton from '../../../../images/preventButton.svg';
+import nextButton from '../../../images/nextButton.svg';
+import preventButton from '../../../images/preventButton.svg';
 
 
 const Pagination = ({pageNumber, count, totalCountProducts, pagesCount}) => {

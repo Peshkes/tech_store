@@ -4,6 +4,7 @@ import Slider from "./slider/Slider";
 import {HeaderContext} from "../../../utils/context";
 import ProductsGallery from "../products_gallery/ProductsGallery";
 import Banner from "../banner/Banner";
+import ArticlesGallery from "../articles_gallery/ArticlesGallery";
 
 const HomePage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
@@ -19,6 +20,8 @@ const HomePage = () => {
             <div className={'narrow'}>
                 <h2>Новые поступления</h2>
                 <ProductsGallery count={8}/>
+                <h2>Блог</h2>
+                <ArticlesGallery count_on_page={3} count={3}/>
             </div>
             <Banner/>
         </div>

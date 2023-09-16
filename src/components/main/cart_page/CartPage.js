@@ -7,20 +7,24 @@ import CartItem from "./cartItem/CartItem";
 
 const CartPage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
-    const {cart, setCart, money} = useContext(CartContext);
+    const {cart, money, checkPromoCode} = useContext(CartContext);
 
     useEffect(() => {
         if ('white' !== headerStyle)
             setHeaderStyle('white');
-        console.log(cart);
     }, []);
+
+    const clickHandler = (e) => {
+        const text = e.target.parentElement.firstElementChild.value;
+        checkPromoCode(text);
+    }
 
     return (
         <div className={style.cartPage}>
             <div className="narrow">
                 <BreadCrumbs/>
                 <h2>Корзина</h2>
-                <div className={style.cartPage}>
+                {cart.length > 0 ? <div className={style.cartPage}>
                     <div className={style.cartList}>
                         {cart.map((item, index) => <CartItem key={'cartItem ' + index} cartObject={item} type={(index === cart.length - 1) ? 'last' : 'normal'}/>)}
                     </div>
@@ -28,7 +32,7 @@ const CartPage = () => {
                         <h3>Итог</h3>
                         <div className={style.promo}>
                             <input type="text" placeholder={'Промокод'}/>
-                            <button>Проверить</button>
+                            <button onClick={clickHandler}>Проверить</button>
                         </div>
                         <div className={style.subText}>
                             <p className={style.price}>Цена:</p>
@@ -48,7 +52,8 @@ const CartPage = () => {
                             <button>Купить</button>
                         </Link>
                     </div>
-                </div>
+                </div> :
+                <h2>Я пустна внутри, хоть и не показываю это снаружи ;(</h2>}
             </div>
         </div>
     );

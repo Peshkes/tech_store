@@ -14,54 +14,56 @@ const ProductsGallery = ({sorted, count}) => {
     const pagesCount = Math.ceil(totalCountProducts / count);
     const pageNumber = urlParsing(page_number, pagesCount);
 
+    //sorting
+
+    const {sort} = useParams();
+    let sortedArr;
+
+    let sortingArr = [];
+    let sorting;
+    if (!sort) {
+        sorting = sorted;
+    } else {
+        sorting = sort;
+    }
+
+    if (sorting.length !== 0) {
+
+        if (sorting.includes('&')) {
+            sortingArr = sorting.split('&');
+            console.log(sortingArr)                                         //['type=phones', 'company=apple']
+            sortingArr = sortingArr.map(item => item.split(/=|_|\+/));
+            console.log(sortingArr, '==')                                   //[ ['type', 'laptops', 'phones'],
+                                                                            //  ['price', '100', '12000']    ]
+        } else {
+            sortingArr[0] = sorting.split(/=|_|\+/)
+            console.log(sortingArr, '=')                                    //[['type', 'laptops' 'phones']]
+        }
+
+        let res = [];
+
+        sortingArr.map(item => {
 
 
-    // if (sorted.length === 0) {
-    //     console.log('sdfdf')
-    // }
+            for (let i = 1; i <= item.length; i++) {
 
-    // const {sort} = useParams();
-    // let sortedArr = [];
-    //
-    // let sortingArr = [];
-    // let sorting;
-    // if (!sort) {
-    //     sorting = sorted;
-    // } else {
-    //     sorting = sort;
-    // }
-    //
-    // if (sorting.length !== 0) {
-    //
-    //     if (sorting.includes('&')) {
-    //         sortingArr = sorting.split('&');
-    //         console.log(sortingArr)
-    //         sortingArr = sortingArr.map(item => {
-    //             return item.split('=')      //[['type', 'laptops], ['price', '100-12000]]
-    //         });
-    //         console.log(sortingArr, '==')
-    //     } else {
-    //         sortingArr[0] = sorting.split('=') //[['type', 'laptops]]
-    //         console.log(sortingArr, '=')
-    //     }
-    //
-    //     let res = productsArr;
-    //
-    //     sortedArr = sortingArr.map(item => {
-    //         res = res.map(product => {
-    //             if (product[item[0]].toLowerCase() === item[1]) {
-    //                 return product;
-    //             }
-    //         })
-    //
-    //         res = res.filter(element => element !== undefined)
-    //         console.log(res, 'res')
-    //         return res;
-    //     })
-    //
-    //     console.log(sortedArr, 'sort')
-    //
-    // }
+                res.push(productsArr.filter(product => product[item[0]].toLowerCase() === item[i]));
+            }
+                console.log(res, 'all needed elements')
+
+            console.log(res, 'res')
+            return;
+        })
+
+        let newRes = res.flat(1);
+        sortedArr = newRes.filter((item, index) => {
+
+           return  newRes.indexOf(item) !== index
+        });
+
+        console.log(sortedArr, 'sort')
+
+    }
 
 
     //constants for pagination

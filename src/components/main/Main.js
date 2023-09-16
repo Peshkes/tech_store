@@ -26,8 +26,11 @@ const Main = () => {
                 <Route element={<ProductPage/>} path={'product'}/>
                 <Route element={<ProductsPage/>} path={"product/:productId"}/>
 
-                <Route element={<BlogPage/>} path={"blog"}/>
-                <Route element={<ArticlePage/>} path={"blog/:articleId"}/>
+                <Route element={<BlogPage/>} path={"blog"}>
+                    <Route element={<BlogPage/>} path={':page_number'}/>
+                </Route>
+
+                <Route element={<ArticlePage/>} path={"articles/:articleId"}/>
 
                 <Route element={<ProfilePage/>} path={"profile"}/>
                 <Route element={<ProfilePage/>} path={"profile/:action"}/>

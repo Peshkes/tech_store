@@ -3,15 +3,22 @@ import style from './articlesGallery.module.css';
 import {articles} from "../../../utils/articlesConst";
 import {urlParsing} from "../../../utils/functions";
 import {useParams} from "react-router-dom";
-import {productsArr} from "../../../utils/productsConst";
 import ArticleCard from "./articleCard/ArticleCard";
+import Pagination from "../pagination/Pagination";
 
-const ArticlesGallery = ({count_on_page, count}) => {
+const ArticlesGallery = ({count_on_page = 6, count = articles.length}) => {
     const {page_number} = useParams();
-    if (!count)
-        count = articles.length;
     const currentArticles = articles.sort((a, b) => b.date - a.date).slice(0, count);
     const pagesCount = Math.ceil(count / count_on_page);
+
+    // useEffect(() => {
+    //     if (!mounted()) return
+    //         window.scrollTo({
+    //             top: 80,
+    //             behavior: "smooth",
+    //         });
+    //
+    // }, [page_number])
 
     let pageNumber;
     let lastProductIndex;
@@ -20,19 +27,27 @@ const ArticlesGallery = ({count_on_page, count}) => {
 
     if (pagesCount !== 1) {
         pageNumber = urlParsing(page_number, pagesCount);
-        lastProductIndex = pageNumber * count;
-        firstProductIndex = lastProductIndex - count;
-        currentProductPage = productsArr.slice(firstProductIndex, lastProductIndex);
+        lastProductIndex = pageNumber * count_on_page;
+        firstProductIndex = lastProductIndex - count_on_page;
+        currentProductPage = currentArticles.slice(firstProductIndex, lastProductIndex);
     }
 
-    return (
-        <div className={style.articlesGallery}>
-            {pagesCount === 1 ?
-                currentArticles.map((item, index) => <ArticleCard key={'article ' + index} article={item}/>) : null
+    if (pagesCount === 1)
+        return (
+            <div className={style.articlesGallery}>
+                {currentArticles.map((item, index) => <ArticleCard key={'article ' + index} article={item}/>)}
+            </div>
+        );
+    else
+        return (
+            <div>
+                <div className={style.articlesGallery}>
+                    {currentProductPage.map((item, index) => <ArticleCard key={'article ' + index} article={item}/>)}
+                </div>
+                <Pagination pageNumber={pageNumber} pagesCount={pagesCount}/>
+            </div>
+        );
 
-            }
-        </div>
-    );
 };
 
 export default ArticlesGallery;

@@ -19,8 +19,6 @@ const Pagination = ({pageNumber, count, totalCountProducts, pagesCount}) => {
         pageNumbers.push(i);
     }
 
-
-
     //arrows right and left
     if (pageNumber !== 1 && pageNumber !== Math.ceil(totalCountProducts / count)) {
         isPrevent.current = true;

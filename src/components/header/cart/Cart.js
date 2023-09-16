@@ -7,6 +7,7 @@ import {CartContext} from "../../../utils/context";
 
 const Cart = ({headerStyle}) => {
     const {cart} = useContext(CartContext);
+
     return (
             <NavLink to={'cart'} className={({isActive}) => isActive ? style.cart + ' ' + style["active"] : style.cart}>
                 {cart.length !== 0 && <div className={style.icon}>{cart.length}</div>}

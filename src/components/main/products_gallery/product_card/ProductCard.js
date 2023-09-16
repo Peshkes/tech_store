@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import style from './productCard.module.css';
 import star from '../../../../images/starBlue.svg';
 import greyStar from '../../../../images/starGrey.svg';
 import cart from '../../../../images/cartBlue.svg';
 import {Link} from "react-router-dom";
+import {CartContext} from "../../../../utils/context";
 
 const ProductCard = ({item}) => {
+
+    const {addToCart} = useContext(CartContext);
 
     const setRating = (countStars) => {
 
@@ -37,11 +40,17 @@ const ProductCard = ({item}) => {
                             </div>
                     }
                     </Link>
-                    <Link to={'cart'}>
-                        <div className={style.cartBox}>
+
+                        <div className={style.cartBox} onClick={() => {
+                            addToCart({
+                                id: item.id,
+                                count: 1
+                            })
+
+                        }}>
                             <img className={style.cart} alt={'cart'} src={cart}/>
                         </div>
-                    </Link>
+
                 </div>
             </div>
             <div>

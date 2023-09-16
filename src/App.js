@@ -10,6 +10,7 @@ function App() {
     const [headerStyle, setHeaderStyle] = useState('white');
     const [cart, setCart] = useState([]);
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
     const addToCart = (obj) => {
         const index = cart.findIndex(item => item.id === obj.id)
         if (index === -1)
@@ -22,6 +23,7 @@ function App() {
     }
 
     return (
+
         <div className="App">
             {isOverlayOpen && <div className={'overlay'} onClick={()=>setIsOverlayOpen(false)}/> }
             <CartContext.Provider value={{cart, addToCart, setIsOverlayOpen, isOverlayOpen}}>

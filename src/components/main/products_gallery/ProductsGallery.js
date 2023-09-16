@@ -2,8 +2,9 @@ import React from 'react';
 import style from './productsGallery.module.css';
 import ProductCard from "./product_card/ProductCard";
 import {productsArr} from "../../../utils/productsConst";
-import Pagination from "./pagination/Pagination";
+import Pagination from "../pagination/Pagination";
 import {useParams} from "react-router-dom";
+import {urlParsing} from "../../../utils/functions";
 
 const ProductsGallery = ({sorted, count}) => {
 
@@ -11,17 +12,7 @@ const ProductsGallery = ({sorted, count}) => {
     const {page_number} = useParams();
     const totalCountProducts = productsArr.length;
     const pagesCount = Math.ceil(totalCountProducts / count);
-    let pageNumber = 1;
-
-    if (page_number && page_number.includes('=')) {
-        let temp = page_number.split('=');
-        if (temp.length === 2 && temp[0] === 'p') {
-            temp = +temp[1];
-            if (temp && temp <= pagesCount) {
-                pageNumber = temp;
-            }
-        }
-    }
+    const pageNumber = urlParsing(page_number, pagesCount);
 
     //constants for pagination
     const lastProductIndex = pageNumber * count;

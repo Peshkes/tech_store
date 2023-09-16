@@ -18,6 +18,7 @@ const ArticlePage = () => {
         if (!articleObject) {
             navigate('/blog');
         }
+        window.scrollTo(0, 0);
     }, []);
 
     return (

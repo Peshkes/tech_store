@@ -9,14 +9,20 @@ import {CartContext} from "./utils/context";
 function App() {
     const [headerStyle, setHeaderStyle] = useState('white');
     const [cart, setCart] = useState([]);
+    const [money, setMoney] = useState({
+        preTotal: 0,
+        sale: 0,
+        total: 0
+    });
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
     const addToCart = (obj) => {
         const index = cart.findIndex(item => item.id === obj.id)
-        if (index === -1)
+        if (index === -1){
             setCart([...cart, obj]);
+        }
         else{
-            const tmpCart = cart;
+            const tmpCart = [...cart];
             tmpCart[index].count += obj.count;
             setCart(tmpCart);
         }
@@ -26,9 +32,9 @@ function App() {
 
         <div className="App">
             {isOverlayOpen && <div className={'overlay'} onClick={()=>setIsOverlayOpen(false)}/> }
-            <CartContext.Provider value={{cart, addToCart, setIsOverlayOpen, isOverlayOpen}}>
+            <CartContext.Provider value={{cart, addToCart, money, setMoney, setIsOverlayOpen, isOverlayOpen}}>
                 <Header headerStyle={headerStyle}/>
-                <HeaderContext.Provider value={{setHeaderStyle}}>
+                <HeaderContext.Provider value={{setHeaderStyle, headerStyle}}>
                     <Main/>
                 </HeaderContext.Provider>
             </CartContext.Provider>

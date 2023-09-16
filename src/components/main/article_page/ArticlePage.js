@@ -15,6 +15,7 @@ const ArticlePage = () => {
     useEffect(() => {
         if ('white' !== headerStyle)
             setHeaderStyle('white');
+        window.scrollTo(0, 0);
         if (!articleObject) {
             navigate('/blog');
         }

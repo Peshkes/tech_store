@@ -10,8 +10,9 @@ const HomePage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
 
     useEffect(() => {
-        if ('black' !== headerStyle)
+        if ('black' !== headerStyle) {
             setHeaderStyle('black');
+        }
     }, []);
 
     return (

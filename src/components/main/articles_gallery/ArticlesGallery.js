@@ -11,15 +11,6 @@ const ArticlesGallery = ({count_on_page = 6, count = articles.length}) => {
     const currentArticles = articles.sort((a, b) => b.date - a.date).slice(0, count);
     const pagesCount = Math.ceil(count / count_on_page);
 
-    // useEffect(() => {
-    //     if (!mounted()) return
-    //         window.scrollTo({
-    //             top: 80,
-    //             behavior: "smooth",
-    //         });
-    //
-    // }, [page_number])
-
     let pageNumber;
     let lastProductIndex;
     let firstProductIndex;

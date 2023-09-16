@@ -9,7 +9,7 @@ const SearchResultItem = ({result, setIsActive, setIsOverlayOpen, setText}) => {
         setIsActive(false);
     }
     return (
-        <Link to={ result.name ? `/product/${result.id}` :  `/blog/${result.id}`} onClick={clickHandler}>
+        <Link to={ result.name ? `/product/${result.id}` :  `/articles/${result.id}`} onClick={clickHandler}>
             <div className={style.resultItem}>
                 {result.name ?
                     result.type === 'laptops' ?

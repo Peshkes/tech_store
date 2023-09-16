@@ -2,6 +2,9 @@ import React, {useContext, useEffect} from 'react';
 import style from './blogPage.module.css';
 import {HeaderContext} from "../../../utils/context";
 import BreadCrumbs from "../bread_crumbs/BreadCrumbs";
+import ArticlesGallery from "../articles_gallery/ArticlesGallery";
+import Banner from "../banner/Banner";
+import {useMounted} from "../../../hooks/useMounted";
 
 const BlogPage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
@@ -11,11 +14,14 @@ const BlogPage = () => {
             setHeaderStyle('white');
     }, []);
 
+
     return (
         <div className={style.blogPage}>
             <div className="narrow">
                 <BreadCrumbs/>
+                <ArticlesGallery/>
             </div>
+            <Banner/>
         </div>
     );
 };

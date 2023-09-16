@@ -24,11 +24,8 @@ const ProductsGallery = ({sorted, count}) => {
             <div className={style.productsGallery}>
                 {currentProductPage.map(item => <ProductCard key={item.id} item={item}/>)}
             </div>
-            <Pagination pageNumber={pageNumber} count={count}
-                        totalCountProducts={totalCountProducts} pagesCount={pagesCount}/>
+            <Pagination pageNumber={pageNumber} pagesCount={pagesCount}/>
         </div>
-
-
     );
 };
 

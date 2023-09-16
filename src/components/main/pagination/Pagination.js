@@ -5,7 +5,7 @@ import nextButton from '../../../images/nextButton.svg';
 import preventButton from '../../../images/preventButton.svg';
 
 
-const Pagination = ({pageNumber, count, totalCountProducts, pagesCount}) => {
+const Pagination = ({pageNumber, pagesCount}) => {
 
     const isPrevent = useRef();
     const isNext = useRef();
@@ -22,13 +22,13 @@ const Pagination = ({pageNumber, count, totalCountProducts, pagesCount}) => {
 
 
     //arrows right and left
-    if (pageNumber !== 1 && pageNumber !== Math.ceil(totalCountProducts / count)) {
+    if (pageNumber !== 1 && pageNumber !== pagesCount) {
         isPrevent.current = true;
         isNext.current = true
     } else if (pageNumber === 1) {
         isPrevent.current = false;
         isNext.current = true;
-    } else if (pageNumber === Math.ceil(totalCountProducts / count)) {
+    } else if (pageNumber === pagesCount) {
         isPrevent.current = true;
         isNext.current =  false;
     }

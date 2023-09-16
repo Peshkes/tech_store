@@ -2,9 +2,9 @@ import slide1 from '../images/slider/slide1.webp';
 import slide2 from '../images/slider/slide2.webp';
 
 export const menuList = [
-    {name: 'Ноутбуки', route: 'products/laptops'},
-    {name: 'Телефоны', route: 'products/phones'},
-    {name: 'Наушники', route: 'products/headphones'},
+    {name: 'Ноутбуки', route: 'products/type=laptops'},
+    {name: 'Телефоны', route: 'products/type=phones'},
+    {name: 'Наушники', route: 'products/type=headphones'},
     {name: 'Блог', route: 'blog'}
 ];
 

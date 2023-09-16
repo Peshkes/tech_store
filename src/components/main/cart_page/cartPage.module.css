@@ -54,6 +54,9 @@
     background-color: inherit;
     width: 40%;
 }
+.promo button:active{
+    background-color: var(--grey-dark-2);
+}
 .price{
     margin-bottom: 0;
     margin-top: 1.7vw;

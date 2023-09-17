@@ -115,24 +115,14 @@ import product13_3_x2 from '../images/products/laptops/13/13-3-x2.webp';
 import product13_4 from '../images/products/laptops/13/13-4.webp';
 import product13_4_x2 from '../images/products/laptops/13/13-4-x2.webp';
 
-//?pf=ms_action%2Cdiscount.price1_10%2Crating.3.5&f=ms_action%2Cdiscount.price1_10%2Crating.3.5%2Chonor&r=price_filter_group_id%3A16770-295274
-
-//rating, company, price, type
-//products/rating=3-5&company=apple&price=0-300000&type=phones+laptops+headphones
+//rating, company, price, type, other= [price_up, price_down, new]
+//products/rating=3-5&company=apple&price=0-300000&type=phones+laptops+headphones&other=price_up
 
 //rating=3-5
 //company=apple
 //price=0-300000
 //type=phones+laptops+headphones
-
-
-
-//sorted: ['new', 'type']
-
-//cart: {
-// id: 2,
-// count: 1
-// }
+//other=price_up
 
 export const productsArr = [
     {

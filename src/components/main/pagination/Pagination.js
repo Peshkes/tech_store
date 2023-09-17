@@ -9,9 +9,6 @@ const Pagination = ({pageNumber, pagesCount}) => {
 
     const isPrevent = useRef();
     const isNext = useRef();
-    const isDotsFirst = useRef();
-    const isDotsMedium = useRef();
-    const isDotsLast = useRef();
 
     const pageNumbers = [];
 
@@ -20,9 +17,12 @@ const Pagination = ({pageNumber, pagesCount}) => {
     }
 
     //arrows right and left
-    if (pageNumber !== 1 && pageNumber !== pagesCount) {
+    if (pagesCount === 1) {
+        isPrevent.current = false;
+        isNext.current = false;
+    } else if (pageNumber !== 1 && pageNumber !== pagesCount) {
         isPrevent.current = true;
-        isNext.current = true
+        isNext.current = true;
     } else if (pageNumber === 1) {
         isPrevent.current = false;
         isNext.current = true;
@@ -33,26 +33,28 @@ const Pagination = ({pageNumber, pagesCount}) => {
 
     return (
         <div className={style.paginationWrapper}>
-            <div className={style.paginationBox}>
-                    {!isPrevent.current ? '' :
-                        <Link className={style.btn + ' ' + style.btnLeft} to={`p=${pageNumber - 1}`}>
-                            <img alt={'prevent'} src={preventButton}/>
-                        </Link>}
+            {pagesCount === 1 ? '' :
+                <div className={style.paginationBox}>
+                        {!isPrevent.current ? '' :
+                            <Link className={style.btn + ' ' + style.btnLeft} to={`p=${pageNumber - 1}`}>
+                                <img alt={'prevent'} src={preventButton}/>
+                            </Link>}
 
-                    {pageNumbers.map(number =>
-                        <Link key={'link' + number} className={style.numbers + ` ${number === pageNumber ? style.active : ''}` +
-                        ` ${number === pageNumber && number === 1 ? style.btnLeft : ''}` +
-                        ` ${number === pageNumber && number === pagesCount ? style.btnRight: ''}`}
-                              to={`p=${number}`}>
-                            <div key={number}>{number}</div>
-                        </Link>
-                    )}
+                        {pageNumbers.map(number =>
+                            <Link key={'link' + number} className={style.numbers + ` ${number === pageNumber ? style.active : ''}` +
+                            ` ${number === pageNumber && number === 1 ? style.btnLeft : ''}` +
+                            ` ${number === pageNumber && number === pagesCount ? style.btnRight: ''}`}
+                                to={`p=${number}`}>
+                                <div key={number}>{number}</div>
+                            </Link>
+                        )}
 
-                    {!isNext.current ? '' :
-                        <Link className={style.btn + ' ' + style.btnRight} to={`p=${pageNumber + 1}`}>
-                            <img alt={'next'} src={nextButton}/>
-                        </Link>}
-            </div>
+                        {!isNext.current ? '' :
+                            <Link className={style.btn + ' ' + style.btnRight} to={`p=${pageNumber + 1}`}>
+                                <img alt={'next'} src={nextButton}/>
+                            </Link>}
+                </div>
+            }
         </div>
     );
 };

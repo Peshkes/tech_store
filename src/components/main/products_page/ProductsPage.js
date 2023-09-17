@@ -18,7 +18,7 @@ const ProductsPage = () => {
 
             <div className="narrow">
                 <BreadCrumbs/>
-                <ProductsGallery sorted={'type=laptops'} count={20}/>
+                <ProductsGallery sorted={''} count={8}/>
             </div>
 
             <Banner/>

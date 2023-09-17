@@ -20,6 +20,9 @@ const ProductPage = () => {
     const productObject = productsArr.find(product => product.id === +params.productId);
 
     useEffect(() => {
+        if (!isOverlayOpen){
+            setIsViewActive(false);
+        }
         if ('white' !== headerStyle)
             setHeaderStyle('white');
         window.scrollTo(0, 0);

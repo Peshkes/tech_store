@@ -9,7 +9,7 @@
 }
 .image{
     max-width: 70vw;
-    max-height: 90vw;
+    max-height: 90vh;
 }
 .prev, .next {
     cursor: pointer;

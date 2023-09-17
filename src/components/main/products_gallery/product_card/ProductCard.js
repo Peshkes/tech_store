@@ -29,7 +29,7 @@ const ProductCard = ({item}) => {
         <div className={style.card}>
             <div>
                 <div className={style.images}>
-                    <Link to={`product/${item.id}`}>
+                    <Link to={`/product/${item.id}`}>
                         {
                         item.type === 'laptops' ?
                             <div className={style.imgCard}

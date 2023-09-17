@@ -14,6 +14,8 @@
     padding: 11px 11px 11px 36px;
     outline:none;
     border-radius: 10px;
+}
+.active{
     z-index: 101;
 }
 .search input::-webkit-search-cancel-button {

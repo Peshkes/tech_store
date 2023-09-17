@@ -1,131 +1,99 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from './productsGallery.module.css';
 import ProductCard from "./product_card/ProductCard";
 import {productsArr} from "../../../utils/productsConst";
 import Pagination from "../pagination/Pagination";
 import {useParams} from "react-router-dom";
-import {urlParsing} from "../../../utils/functions";
 
-const ProductsGallery = ({sorted, count}) => {
+const ProductsGallery = ({sorted = '', count}) => {
+    const [page, setPage] = useState(1);
 
     //sorting
     const {sort} = useParams();
-    let sortedArr = [];
+    let sortedArr = productsArr;
+    let sortString;
 
-    let sortingObj = {};
-    let sortingArr = [];
-    let sorting;
-
-    //is sorting?
-    if (!sort) {
-        sorting = sorted;
-    } else {
-        sorting = sort;
+    if (sort) {
+        sortString = sort;
+    } else if (sorted) {
+        sortString = sorted;
     }
 
-    if (sorting.length === 0) {
+    if (sortString){
+        let filterArray;
+        if (sortString.includes('&'))
+            filterArray = sortString.split('&');
+        else
+            filterArray = [sortString];
 
-        sortedArr = productsArr;
-
-    } else {
-
-        //making sorting object
-        if (sorting.includes('&')) {
-            sortingArr = sorting.split('&');
-            sortingArr.forEach(item => {
-                let temp = item.split('=');
-
-                if (item.includes('+')) {
-                    sortingObj[temp[0]] = temp[1].split(/\+/);
-                } else {
-                    sortingObj[temp[0]] = temp[1];
-                }
-            })
-        } else {
-            let temp = sorting.split('=')
-            if (temp[1].includes('+')) {
-                sortingObj[temp[0]] = temp[1].split(/\+/);
+        filterArray = filterArray.map(item => {
+            const result = {};
+            const tmp = item.split('=');
+            result.item = tmp.shift();
+            if (tmp[0].includes('-')) {
+                result.type = 'range';
+                result.data = tmp[0].split('-');
+            } else if (tmp[0].includes('+')) {
+                result.type = 'enumeration';
+                result.data = tmp[0].split('+');
             } else {
-                sortingObj[temp[0]] = temp[1];
+                result.type = 'simple';
+                result.data = tmp[0];
             }
-        }
+            return result;
+        });
 
-        //sorting process
-        let resultArray = productsArr;
-        let keysArr = Object.keys(sortingObj);
-        let resultFilteredArray;
+        let sorting = filterArray.findIndex(item => item.item === 'other');
+        if (sorting !== -1)
+            sorting = filterArray.splice(sorting, 1)[0].data;
+        else
+            sorting = null;
 
-        keysArr.forEach(key => {
+        filterArray.forEach(sorting => {
+            switch (sorting.type) {
+                case 'range':
+                    sortedArr = sortedArr.filter(item => item[sorting.item] >= sorting.data[0] && item[sorting.item] <= sorting.data[1]);
+                    return;
+                case 'enumeration':
+                    sortedArr = sortedArr.filter(item => sorting.data.includes(item[sorting.item].toLowerCase()));
+                    return;
+                case 'simple':
+                    sortedArr = sortedArr.filter(item => item[sorting.item].toLowerCase() === sorting.data);
+                    return;
+                default:
+                    return;
+            }
+        });
 
-            console.log(sortingObj[key]);
-            if (key === 'p') {
+        if (sorting)
+            sortArray(sortedArr, sorting);
+    }
+
+    function sortArray (array, sorting) {
+        switch (sorting) {
+            case 'new': {
+                sortedArr.sort((a, b) => b.id - a.id);
                 return;
-            } else if (key === 'other' && typeof sortingObj[key] !== 'object') {
-                switch (sortingObj[key]) {
-                    case 'new': {
-                        resultArray.reverse();
-                        return;
-                    }
-                    case 'price_up': {
-                        resultArray.sort((first, second) => first.price - second.price);
-                        return;
-                    }
-                    case 'price_down': {
-                        resultArray.sort((first, second) => second.price - first.price);
-                        return;
-                    }
-                }
             }
-
-            if (typeof sortingObj[key] !== 'object' && !sortingObj[key].includes('-')) {
-                resultArray.forEach(item => {
-                    if (sortingObj[key] !== String(item[key]).toLowerCase()) {
-                        resultFilteredArray = resultArray.filter(obj => obj.id !== item.id);
-                        resultArray = resultFilteredArray;
-                    }
-                })
-            } else  if (sortingObj[key].includes('-')) {
-
-                sortingObj[key] = sortingObj[key].split('-');
-
-                resultArray.forEach(item => {
-                    if (item[key] < Number(sortingObj[key][0]) || item[key] > Number(sortingObj[key][1])) {
-                        resultFilteredArray = resultArray.filter(obj => obj.id !== item.id);
-                        resultArray = resultFilteredArray;
-                    }
-                })
-
-            } else if (typeof sortingObj[key] === 'object') {
-
-                let resultArrayCopy = resultArray;
-                let tempFilteredArray = Array(sortingObj[key].length);
-
-                sortingObj[key].forEach((value, index) => {
-                    resultArrayCopy.forEach(item => {
-                        if (item[key].toLowerCase() !== value) {
-                            tempFilteredArray[index] = resultArrayCopy.filter(obj => obj.id !== item.id);
-                            resultArrayCopy = tempFilteredArray[index]
-                        }
-                    })
-                    resultArrayCopy = resultArray;
-                })
-                resultArray = new Array();
-                tempFilteredArray.forEach(item => {
-                    resultArray.push(...item)
-                });
+            case 'price_up': {
+                sortedArr.sort((a, b) => a.price - b.price);
+                return;
             }
-        })
-        sortedArr = resultArray;
+            case 'price_down': {
+                sortedArr.sort((a, b) => b.price - a.price);
+                return;
+            }
+            default:
+                return;
+        }
     }
 
     //current page calculation
-    const {page_number} = useParams();
     const totalCountProducts = sortedArr.length;
     const pagesCount = Math.ceil(totalCountProducts / count);
-    const pageNumber = urlParsing(page_number, pagesCount);
 
     //constants for pagination
-    const lastProductIndex = pageNumber * count;
+    const lastProductIndex = page * count;
     const firstProductIndex = lastProductIndex - count;
     const currentProductPage = sortedArr.slice(firstProductIndex, lastProductIndex);
 
@@ -136,10 +104,10 @@ const ProductsGallery = ({sorted, count}) => {
                         <h1>Таких товаров не найдено:(</h1>
                         <h2>Попробуй изменить запрос...</h2>
                     </div> :
-                currentProductPage.map(item => <ProductCard key={item.id} item={item}/>)
+                    currentProductPage.map(item => <ProductCard key={item.id} item={item}/>)
                 }
             </div>
-            <Pagination pageNumber={pageNumber} pagesCount={pagesCount}/>
+            <Pagination pageNumber={page} setPage={setPage} pagesCount={pagesCount}/>
         </div>
     );
 };

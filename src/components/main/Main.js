@@ -19,12 +19,14 @@ const Main = () => {
                 <Route element={<HomePage/>} path={"/"}>
                     <Route element={<HomePage/>} path={':page_number'}/>
                 </Route>
+
                 <Route element={<ProductsPage/>} path={"products"}>
                     <Route element={<ProductsPage/>} path={":sort"}/>
                 </Route>
 
                 <Route element={<ProductPage/>} path={'product'}/>
                 <Route element={<ProductPage/>} path={"product/:productId"}/>
+
 
                 <Route element={<BlogPage/>} path={"blog"}>
                     <Route element={<BlogPage/>} path={':page_number'}/>

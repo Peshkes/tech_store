@@ -13,6 +13,7 @@ const Search = ({headerStyle}) => {
     const [resultArticles, setResultArticles] = useState([]);
     const [text, setText] = useState();
     const {isOverlayOpen, setIsOverlayOpen} = useContext(CartContext);
+
     const changeHandler = event => {
         const text = event.target.value;
         setText(text)
@@ -33,7 +34,7 @@ const Search = ({headerStyle}) => {
     return (
         <div className={style.search + ' ' + style[headerStyle]}>
             <img src={headerStyle === 'white' ? searchBlack : searchWhite} alt="search"/>
-            <input type="search" placeholder={'Поиск'} onChange={changeHandler} value={text}/>
+            <input id={'search'} className={isActive? style.active : null} type="search" placeholder={'Поиск'} onChange={changeHandler} value={text}/>
             {isActive && isOverlayOpen &&
                 <div className={style.result}>
                     {resultProducts.length !== 0 && resultProducts.map((item, index) => <SearchResultItem key={index + ' result'} setIsOverlayOpen={setIsOverlayOpen} setIsActive={setIsActive} setText={setText} result={item}/>)}

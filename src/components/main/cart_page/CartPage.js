@@ -48,7 +48,7 @@ const CartPage = () => {
                             <p>{money.total}₽</p>
                         </div>
                         <hr/>
-                        <Link to={'/checkout'}>
+                        <Link to={'#'}>
                             <button>Купить</button>
                         </Link>
                     </div>

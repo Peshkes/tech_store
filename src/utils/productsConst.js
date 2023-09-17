@@ -115,7 +115,7 @@ import product13_3_x2 from '../images/products/laptops/13/13-3-x2.webp';
 import product13_4 from '../images/products/laptops/13/13-4.webp';
 import product13_4_x2 from '../images/products/laptops/13/13-4-x2.webp';
 
-//rating, company, price, type, other= [price_up, price_down, new]
+//rating, company, price, type, other=[price_up, price_down, new]
 //products/rating=3-5&company=apple&price=0-300000&type=phones+laptops+headphones&other=price_up
 
 //rating=3-5

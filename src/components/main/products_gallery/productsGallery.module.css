@@ -1,5 +1,14 @@
 .productsGallery{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    margin-right: -2%;
+    /*justify-content: space-between;*/
+}
+
+.error > h1 {
+    font-size: 1.5vw;
+}
+
+.error > h2 {
+    font-size: 2.5vw;
 }

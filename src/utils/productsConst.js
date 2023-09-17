@@ -118,12 +118,12 @@ import product13_4_x2 from '../images/products/laptops/13/13-4-x2.webp';
 //?pf=ms_action%2Cdiscount.price1_10%2Crating.3.5&f=ms_action%2Cdiscount.price1_10%2Crating.3.5%2Chonor&r=price_filter_group_id%3A16770-295274
 
 //rating, company, price, type
-//products/rating=3-5&company=apple&price=0-300000&type=phones_laptops_headphones
+//products/rating=3-5&company=apple&price=0-300000&type=phones+laptops+headphones
 
 //rating=3-5
 //company=apple
 //price=0-300000
-//type=phones%laptops%headphones
+//type=phones+laptops+headphones
 
 
 

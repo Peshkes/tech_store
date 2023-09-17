@@ -1,0 +1,51 @@
+.mainBlock{
+
+}
+.mainBlock h3, .mainBlock h4{
+    margin: 2vw 0;
+    font-size: 2vw;
+    font-weight: 500;
+}
+.mainBlock h3{
+    margin-top: 0;
+}
+.mainBlock p{
+    color: var(--grey-dark-3);
+    margin-bottom: 0;
+    font-size: 1vw;
+}
+.mainBlock input{
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid var(--grey-dark-3);
+    padding: 0.8vw;
+    margin-right: 1vw;
+    font-size: 1vw;
+    width: 60%;
+}
+.mainBlock button{
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid var(--grey-dark-3);
+    padding: 0.8vw;
+    font-size: 1vw;
+    color: black;
+    background-color: inherit;
+    width: 40%;
+}
+.mainBlock button{
+    width: 40%;
+    background-color: var(--accent-color-1-4);
+    padding: 1vw;
+    border-radius: 10px;
+    font-size: 1vw;
+    border: none;
+    color:white;
+    margin-top: 2vw;
+}
+.mainBlock button:active{
+    background-color: var(--accent-color-1-3);
+}
+.mainBlock button:hover{
+    cursor: pointer;
+}

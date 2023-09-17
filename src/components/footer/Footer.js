@@ -16,9 +16,9 @@ const Footer = () => {
                     </div>
                     <div className={style.t2}>
                         <h4><Link to={'products'}>Товары</Link></h4>
-                        <Link to={'products/laptops'}>Ноутбуки</Link>
-                        <Link to={'products/phones'}>Телефоны</Link>
-                        <Link to={'products/headphones'}>Наушники</Link>
+                        <Link to={'/products/type=laptops'}>Ноутбуки</Link>
+                        <Link to={'/products/type=phones'}>Телефоны</Link>
+                        <Link to={'/products/type=headphones'}>Наушники</Link>
                     </div>
                     <div className={style.t3}>
                         <h4>Помощь</h4>

@@ -24,7 +24,7 @@ const Main = () => {
                 </Route>
 
                 <Route element={<ProductPage/>} path={'product'}/>
-                <Route element={<ProductsPage/>} path={"product/:productId"}/>
+                <Route element={<ProductPage/>} path={"product/:productId"}/>
 
                 <Route element={<BlogPage/>} path={"blog"}>
                     <Route element={<BlogPage/>} path={':page_number'}/>

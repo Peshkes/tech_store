@@ -9,16 +9,19 @@ const CartItem = ({cartObject, type}) => {
     const productObject = productsArr.find(item => item.id === cartObject.id);
     const link = useRef();
 
-    useEffect(()=>{
+    useEffect(() => {
         link.current.value = cartObject.count;
-    },[cartObject])
+    }, [cartObject])
 
     const blurHandler = (e) => {
-        const value = +e.target.value;
-        if (value < 0)
-            e.target.value = 1;
-        if (value >= 0)
-            changeCount(productObject.id, value);
+        let value = e.target.value;
+        if (value < 0 || value === '') {
+            value = 1;
+            e.target.value = value;
+        }
+        value = Math.floor(+value)
+        changeCount(productObject.id, value);
+        e.target.value = value;
     }
 
     return (
@@ -44,7 +47,7 @@ const CartItem = ({cartObject, type}) => {
             </div>
             <div className={style.right}>
                 <p>{productObject.price}₽</p>
-                <button onClick={()=>deleteProduct(productObject.id)}>Удалить</button>
+                <button onClick={() => deleteProduct(productObject.id)}>Удалить</button>
             </div>
         </div>
     );

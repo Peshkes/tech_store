@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import style from './productPage.module.css';
-import {CartContext, HeaderContext} from "../../../utils/context";
+import {HeaderContext, OverlayContext} from "../../../utils/context";
 import Banner from "../banner/Banner";
 import BreadCrumbs from "../bread_crumbs/BreadCrumbs";
 import {productsArr} from "../../../utils/productsConst";
@@ -13,15 +13,14 @@ import ImageViewer from "./image_viewer/ImageViewer";
 const ProductPage = () => {
     const navigate = useNavigate();
     const params = useParams();
-    const [isViewActive, setIsViewActive] = useState(false);
     const [selectedImage, selectImage] = useState(0);
+    const {isImageViewActive, setIsImageViewActive, isOverlayOpen, setIsOverlayOpen} = useContext(OverlayContext);
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
-    const {isOverlayOpen, setIsOverlayOpen} = useContext(CartContext);
     const productObject = productsArr.find(product => product.id === +params.productId);
 
     useEffect(() => {
         if (!isOverlayOpen){
-            setIsViewActive(false);
+            setIsImageViewActive(false);
         }
         if ('white' !== headerStyle)
             setHeaderStyle('white');
@@ -36,14 +35,14 @@ const ProductPage = () => {
             <div className="narrow">
                 <BreadCrumbs/>
                 <div className={style.wrapper}>
-                    <ProductGallery product={productObject} setIsViewActive={setIsViewActive} setIsOverlayOpen={setIsOverlayOpen} selectImage={selectImage}/>
+                    <ProductGallery product={productObject} setIsViewActive={setIsImageViewActive} setIsOverlayOpen={setIsOverlayOpen} selectImage={selectImage}/>
                     <div className={style.information}>
                         <MainBlock product={productObject}/>
                         <AdditionalBlock/>
                     </div>
                 </div>
             </div>
-            { isViewActive && isOverlayOpen && <ImageViewer images={productObject.imgBig} selectedImage={selectedImage}/>}
+            { isImageViewActive && isOverlayOpen && <ImageViewer images={productObject.imgBig} selectedImage={selectedImage}/>}
             <Banner/>
         </div>
     );

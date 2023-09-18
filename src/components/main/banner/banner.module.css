@@ -1,5 +1,6 @@
 .banner {
     display: flex;
+    margin-top: 4vw;
 }
 .banner div, .banner .image{
     width: 50%;

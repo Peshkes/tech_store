@@ -13,9 +13,9 @@ const ProductsGallery = ({sorted = '', count}) => {
     let sortedArr = productsArr;
     let sortString;
 
-    if (sort) {
+    if (sort && sort.includes('=')) {
         sortString = sort;
-    } else if (sorted) {
+    } else {
         sortString = sorted;
     }
 

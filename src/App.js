@@ -3,13 +3,14 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Main from "./components/main/Main";
 import {useState} from "react";
-import {HeaderContext} from "./utils/context";
-import {CartContext} from "./utils/context";
+import {CartContext, HeaderContext, OverlayContext} from "./utils/context";
 import {productsArr} from "./utils/productsConst";
 import {promoCodes} from "./utils/constants";
 
 function App() {
     const [headerStyle, setHeaderStyle] = useState('white');
+    const [isImageViewActive, setIsImageViewActive] = useState(false);
+    const [isSearchResultActive, setIsSearchResultActive] = useState(false);
     const [cart, setCart] = useState([]);
     const [money, setMoney] = useState({
         preTotal: 0,
@@ -30,10 +31,9 @@ function App() {
     const addToCart = (obj) => {
         const index = cart.findIndex(item => item.id === obj.id);
         const price = productsArr.find(item => item.id === obj.id).price;
-        if (index === -1){
+        if (index === -1) {
             setCart([...cart, obj]);
-        }
-        else{
+        } else {
             const tmpCart = [...cart];
             tmpCart[index].count += obj.count;
             setCart(tmpCart);
@@ -57,7 +57,7 @@ function App() {
         const price = productsArr.find(item => item.id === id).price;
         const prevCount = tmpCart[index].count;
         tmpCart[index].count = count;
-        if (count === 0){
+        if (count === 0) {
             tmpCart.splice(index, 1);
         }
         setCart(tmpCart);
@@ -66,24 +66,32 @@ function App() {
 
     const checkPromoCode = (promoCode) => {
         const index = promoCodes.findIndex(item => item.string === promoCode.toLowerCase());
-        if (index !== -1){
+        if (index !== -1) {
             money.sale = promoCodes[index].sale;
             calculateMoney();
-        }
-        else
+        } else
             alert('Промокод не найден :(');
+    }
+
+    const clickOverlayHandler = () => {
+        setIsOverlayOpen(false);
+        setIsImageViewActive(false);
+        setIsSearchResultActive(false);
     }
 
     return (
 
         <div className="App">
-            {isOverlayOpen && <div className={'overlay'} onClick={()=>setIsOverlayOpen(false)}/> }
-            <CartContext.Provider value={{cart, addToCart, deleteProduct, changeCount, checkPromoCode, money, setMoney, setIsOverlayOpen, isOverlayOpen}}>
-                <Header headerStyle={headerStyle}/>
-                <HeaderContext.Provider value={{setHeaderStyle, headerStyle}}>
-                    <Main/>
-                </HeaderContext.Provider>
-            </CartContext.Provider>
+            {isOverlayOpen && <div className={'overlay'} onClick={clickOverlayHandler}/>}
+            <OverlayContext.Provider value={{setIsOverlayOpen, isOverlayOpen, isImageViewActive, setIsImageViewActive, isSearchResultActive, setIsSearchResultActive}}>
+                <CartContext.Provider
+                    value={{cart, addToCart, deleteProduct, changeCount, checkPromoCode, money, setMoney}}>
+                    <Header headerStyle={headerStyle}/>
+                    <HeaderContext.Provider value={{setHeaderStyle, headerStyle}}>
+                        <Main/>
+                    </HeaderContext.Provider>
+                </CartContext.Provider>
+            </OverlayContext.Provider>
             <Footer/>
         </div>
     );

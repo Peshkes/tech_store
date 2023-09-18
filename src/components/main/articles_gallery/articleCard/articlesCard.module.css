@@ -1,9 +1,10 @@
 .articleCard {
     display: flex;
     flex-direction: column;
-    width: 22.5vw;
-    margin-bottom: 4vw;
+    margin-right: 6%;
+    width: calc(82% / 3);
     transition: 0.5s;
+    margin-bottom: 6%;
 }
 .articleCard:hover{
     transform: scale(1.1);

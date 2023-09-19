@@ -44,8 +44,15 @@ export const useSortLinkAnalyst = (customString) => {
             sorting = null;
 
         createUrl = (sortingObject) => {
-            filterArray = filterArray.map(object => (object.item === sortingObject.item) ? sortingObject : object);
-            return filterArray.concat(sorting).join('&');
+            return filterArray.concat([{item: 'other', type: 'enumeration', data: [sorting]}]).map(object => {
+                if (object.item === sortingObject.item)
+                    object = sortingObject;
+                if (object.type === 'enumeration'){
+                    return `${object.item}=${object.data.join('+')}`;
+                } else if (object.type === 'range'){
+                    return `${object.item}=${object.data[0]}-${object.data[1]}`;
+                }
+            }).join('&');
         }
     }
 

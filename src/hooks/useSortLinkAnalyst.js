@@ -46,8 +46,8 @@ export const useSortLinkAnalyst = (customString) => {
         }
     };
 
-    const createUrl = (array) => {
-        return array.join('&');
+    const createUrl = (sortingObject) => {
+        return sortingObject.filterArray.concat(sortingObject.sorting).join('&');
     }
 
     return {

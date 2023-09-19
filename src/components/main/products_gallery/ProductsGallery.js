@@ -14,9 +14,10 @@ const ProductsGallery = ({sorted = '', count}) => {
     const sortLinkAnalyst = useSortLinkAnalyst(sorted);
 
     if (sortLinkAnalyst.sortString){
-        const sortInformation = sortLinkAnalyst.analyzeInformation();
+        const sortingInformation = sortLinkAnalyst.analyzeInformation();
+        console.log(sortingInformation);
 
-        sortInformation.filterArray.forEach(sorting => {
+        sortingInformation.filterArray.forEach(sorting => {
             switch (sorting.type) {
                 case 'range':
                     sortedArr = sortedArr.filter(item => item[sorting.item] >= sorting.data[0] && item[sorting.item] <= sorting.data[1]);
@@ -29,8 +30,8 @@ const ProductsGallery = ({sorted = '', count}) => {
             }
         });
 
-        if (sortInformation.sorting)
-            sortArray(sortedArr, sortInformation.sorting);
+        if (sortingInformation.sorting)
+            sortArray(sortedArr, sortingInformation.sorting);
     }
 
     //current page calculation

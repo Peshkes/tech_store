@@ -3,89 +3,34 @@ import style from './productsGallery.module.css';
 import ProductCard from "./product_card/ProductCard";
 import {productsArr} from "../../../utils/productsConst";
 import Pagination from "../pagination/Pagination";
-import {useParams} from "react-router-dom";
+import {useSortLinkAnalyst} from "../../../hooks/useSortLinkAnalyst";
+import {sortArray} from "../../../utils/functions";
 
 const ProductsGallery = ({sorted = '', count}) => {
     const [page, setPage] = useState(1);
 
     //sorting
-    const {sort} = useParams();
     let sortedArr = productsArr;
-    let sortString;
+    const sortLinkAnalyst = useSortLinkAnalyst(sorted);
 
-    if (sort && sort.includes('=')) {
-        sortString = sort;
-    } else {
-        sortString = sorted;
-    }
+    if (sortLinkAnalyst.sortString){
+        const sortInformation = sortLinkAnalyst.analyzeInformation();
 
-    if (sortString){
-        let filterArray;
-        if (sortString.includes('&'))
-            filterArray = sortString.split('&');
-        else
-            filterArray = [sortString];
-
-        filterArray = filterArray.map(item => {
-            const result = {};
-            const tmp = item.split('=');
-            result.item = tmp.shift();
-            if (tmp[0].includes('-')) {
-                result.type = 'range';
-                result.data = tmp[0].split('-');
-            } else if (tmp[0].includes('+')) {
-                result.type = 'enumeration';
-                result.data = tmp[0].split('+');
-            } else {
-                result.type = 'simple';
-                result.data = tmp[0];
-            }
-            return result;
-        });
-
-        let sorting = filterArray.findIndex(item => item.item === 'other');
-        if (sorting !== -1)
-            sorting = filterArray.splice(sorting, 1)[0].data;
-        else
-            sorting = null;
-
-        filterArray.forEach(sorting => {
+        sortInformation.filterArray.forEach(sorting => {
             switch (sorting.type) {
                 case 'range':
                     sortedArr = sortedArr.filter(item => item[sorting.item] >= sorting.data[0] && item[sorting.item] <= sorting.data[1]);
                     return;
                 case 'enumeration':
-                    sortedArr = sortedArr.filter(item => sorting.data.includes(item[sorting.item].toLowerCase()));
-                    return;
-                case 'simple':
-                    sortedArr = sortedArr.filter(item => item[sorting.item].toLowerCase() === sorting.data);
+                    sortedArr = sortedArr.filter(item => sorting.data.includes(item[sorting.item].toString().toLowerCase()));
                     return;
                 default:
                     return;
             }
         });
 
-        if (sorting)
-            sortArray(sortedArr, sorting);
-    }
-
-    function sortArray (array, sorting) {
-        switch (sorting) {
-            case 'new': {
-                sortedArr.sort((a, b) => b.id - a.id);
-                return;
-            }
-            case 'price_up': {
-                sortedArr.sort((a, b) => a.price - b.price);
-                return;
-            }
-            case 'price_down': {
-                sortedArr.sort((a, b) => b.price - a.price);
-                return;
-            }
-            default:
-                return;
-        }
+        if (sortInformation.sorting)
+            sortArray(sortedArr, sortInformation.sorting);
     }
 
     //current page calculation

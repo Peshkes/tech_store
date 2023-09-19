@@ -11,3 +11,22 @@ export const urlParsing = (params, pagesCount) => {
     }
     return pageNumber;
 }
+
+export function sortArray (array, sorting) {
+    switch (sorting) {
+        case 'new': {
+            array.sort((a, b) => b.id - a.id);
+            return;
+        }
+        case 'price_up': {
+            array.sort((a, b) => a.price - b.price);
+            return;
+        }
+        case 'price_down': {
+            array.sort((a, b) => b.price - a.price);
+            return;
+        }
+        default:
+            return;
+    }
+}

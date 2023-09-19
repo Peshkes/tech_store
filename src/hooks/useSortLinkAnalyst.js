@@ -36,7 +36,7 @@ export const useSortLinkAnalyst = (customString) => {
 
         let sorting = filterArray.findIndex(item => item.item === 'other');
         if (sorting !== -1)
-            sorting = filterArray.splice(sorting, 1)[0].data;
+            sorting = filterArray.splice(sorting, 1)[0].data[0];
         else
             sorting = null;
 

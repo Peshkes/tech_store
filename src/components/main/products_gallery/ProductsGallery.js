@@ -13,7 +13,7 @@ const ProductsGallery = ({sorted = '', count}) => {
     let sortedArr = productsArr;
     const sortLinkAnalyst = useSortLinkAnalyst(sorted);
 
-    if (sortLinkAnalyst.sortString){
+    if (sortLinkAnalyst.sortString) {
         const sortingInformation = sortLinkAnalyst.analyzeInformation();
         console.log(sortingInformation);
 

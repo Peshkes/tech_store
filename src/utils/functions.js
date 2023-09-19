@@ -12,6 +12,7 @@ export const urlParsing = (params, pagesCount) => {
     return pageNumber;
 }
 
+
 export function sortArray (array, sorting) {
     switch (sorting) {
         case 'new': {

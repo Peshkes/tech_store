@@ -2,15 +2,18 @@ import {useParams} from "react-router-dom";
 
 export const useSortLinkAnalyst = (customString) => {
     const {sort} = useParams();
+    let filterArray;
     let sortString;
+    let createUrl;
+    let sorting;
+
     if (sort && sort.includes('=')) {
         sortString = sort;
     } else {
         sortString = customString;
     }
 
-    const analyzeInformation = () => {
-        let filterArray;
+    if (sortString) {
         if (sortString.includes('&'))
             filterArray = sortString.split('&');
         else
@@ -34,25 +37,22 @@ export const useSortLinkAnalyst = (customString) => {
             return result;
         });
 
-        let sorting = filterArray.findIndex(item => item.item === 'other');
+        sorting = filterArray.findIndex(item => item.item === 'other');
         if (sorting !== -1)
             sorting = filterArray.splice(sorting, 1)[0].data[0];
         else
             sorting = null;
 
-        return {
-            filterArray,
-            sorting
+        createUrl = (sortingObject) => {
+            filterArray = filterArray.map(object => (object.item === sortingObject.item) ? sortingObject : object);
+            return filterArray.concat(sorting).join('&');
         }
-    };
-
-    const createUrl = (sortingObject) => {
-        return sortingObject.filterArray.concat(sortingObject.sorting).join('&');
     }
 
     return {
         sortString,
-        analyzeInformation,
+        filterArray,
+        sorting,
         createUrl
     };
 }

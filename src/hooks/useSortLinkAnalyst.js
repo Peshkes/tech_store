@@ -2,9 +2,8 @@ import {useParams} from "react-router-dom";
 
 export const useSortLinkAnalyst = (customString) => {
     const {sort} = useParams();
-    let filterArray;
+    let filterArray = [];
     let sortString;
-    let createUrl;
     let sorting;
 
     if (sort && sort.includes('=')) {
@@ -42,18 +41,21 @@ export const useSortLinkAnalyst = (customString) => {
             sorting = filterArray.splice(sorting, 1)[0].data[0];
         else
             sorting = null;
+    }
 
-        createUrl = (sortingObject) => {
-            return filterArray.concat([{item: 'other', type: 'enumeration', data: [sorting]}]).map(object => {
-                if (object.item === sortingObject.item)
-                    object = sortingObject;
-                if (object.type === 'enumeration'){
-                    return `${object.item}=${object.data.join('+')}`;
-                } else if (object.type === 'range'){
-                    return `${object.item}=${object.data[0]}-${object.data[1]}`;
-                }
-            }).join('&');
-        }
+    let createUrl = (sortingObject) => {
+        let index = filterArray.findIndex(object => object.item === sortingObject.item);
+        if (index === -1)
+            filterArray.push(sortingObject);
+        else
+            filterArray[index] = sortingObject;
+        return filterArray.concat([{item: 'other', type: 'enumeration', data: [sorting]}]).map(object => {
+            if (object.type === 'enumeration') {
+                return `${object.item}=${object.data.join('+')}`;
+            } else if (object.type === 'range') {
+                return `${object.item}=${object.data[0]}-${object.data[1]}`;
+            }
+        }).join('&');
     }
 
     return {

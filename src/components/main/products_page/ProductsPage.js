@@ -21,7 +21,7 @@ const ProductsPage = () => {
             <div className="narrow">
                 <BreadCrumbs/>
                 <Sorter/>
-                <div>
+                <div className={style.main}>
                     <Filter/>
                     <ProductsGallery count={6}/>
                 </div>

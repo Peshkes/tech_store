@@ -44,8 +44,11 @@ export const useSortLinkAnalyst = (customString) => {
     }
 
     let createUrl = (sortingObject) => {
-        if (sortingObject.item === 'other'){
-            sorting = sortingObject.data[0];
+        if (sortingObject.item === 'other') {
+            if (sortingObject.data[0] === 'all')
+                sorting = null;
+            else
+                sorting = sortingObject.data[0];
         } else {
             let index = filterArray.findIndex(object => object.item === sortingObject.item);
             if (index === -1)

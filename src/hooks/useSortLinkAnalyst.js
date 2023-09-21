@@ -64,7 +64,8 @@ export const useSortLinkAnalyst = (customString) => {
                 }
             }
         }
-        sorting && filterArray.concat([{item: 'other', type: 'enumeration', data: [sorting]}]);
+        if (sorting)
+            filterArray = filterArray.concat([{item: 'other', type: 'enumeration', data: [sorting]}]);
         return filterArray.map(object => {
             if (object.type === 'enumeration') {
                 return `${object.item}=${object.data.join('+')}`;

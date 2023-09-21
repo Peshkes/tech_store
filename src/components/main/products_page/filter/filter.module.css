@@ -1,0 +1,125 @@
+.sorting {
+    width: 15vw;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sorting div h4 {
+    cursor: pointer;
+}
+
+.subMenu {
+    display: none;
+}
+
+.show {
+    display: flex;
+}
+
+.rangeWrapper {
+    position: relative;
+    width: 100%;
+    /*display: flex;*/
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.values {
+    width: max-content;
+    position: relative;
+    padding: 0.5vw;
+    border: 1px solid var(--grey-dark-3);
+    border-radius: 5px;
+    text-align: center;
+    color: black;
+    font-size: 1vw;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    margin-top: 1vw;
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    /*margin: auto;*/
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.sliderTrack {
+    width: 100%;
+    height: 0.1vw;
+    background-color: #757575FF;
+    position: absolute;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 5px;
+}
+
+input[type='range']::-moz-range-track {
+    -moz-appearance: none;
+    height: 5px;
+}
+
+input[type='range']::-ms-track {
+    appearance: none;
+    height: 5px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1vw;
+    width: 1vw;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    border: solid 0.2vw var(--accent-color-1-4);
+    margin-top: -0.4vw;
+    pointer-events: auto;
+}
+
+.inputLeft::-webkit-slider-thumb {
+    margin-left: -1vw;
+}
+
+.inputRight::-webkit-slider-thumb {
+    margin-right: -1vw;
+}
+
+input[type='range']::-moz-range-thumb {
+    -moz-appearance: none;
+    height: 1vw;
+    width:0.3vw;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--accent-color-1-4);
+    pointer-events: auto;
+}
+
+input[type='range']::-ms-thumb {
+    appearance: none;
+    height: 1vw;
+    width:0.3vw;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--accent-color-1-4);
+    pointer-events: auto;
+}
+
+input[type='range']:active::-webkit-slider-thumb {
+    background-color: var(--accent-color-1-4);
+    border: 0.1vw solid var(--accent-color-1-4);
+}

@@ -58,7 +58,7 @@ const ProductCard = ({item}) => {
                 <p className={style.id + ' ' + style.discrCard}>#{item.id}</p>
                 <div className={style.info}>
                     <div className={style.discrCard + ' ' + style.name}>
-                            <Link className={style.link} to={`product/${item.id}`}>{item.name}</Link>
+                            <Link className={style.link} to={`/product/${item.id}`}>{item.name}</Link>
                     </div>
                     <div className={style.price}>{item.price}<span className={style.rub}> ₽</span></div>
                 </div>

@@ -52,7 +52,7 @@ export const useSortLinkAnalyst = (customString) => {
                 if (sortingObject.checked) {
                     filterArray[index].data.push(...sortingObject.data);
                 } else {
-                    filterArray[index].data.splice(filterArray.data.findIndex(item => item === sortingObject.data[0]), 1);
+                    filterArray[index].data.splice(filterArray[index].data.findIndex(item => item === sortingObject.data[0]), 1);
                     if (filterArray[index].data.length === 0)
                         filterArray.splice(index, 1);
                 }

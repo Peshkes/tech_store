@@ -3,7 +3,7 @@ import style from "./filter.module.css";
 import {useSortLinkAnalyst} from "../../../../hooks/useSortLinkAnalyst";
 import {productsArr} from "../../../../utils/productsConst";
 import {useNavigate} from "react-router-dom";
-import {categoriesRu, typeProductsRu} from "../../../../utils/constants";
+import {typeProductsRu} from "../../../../utils/constants";
 const Filter = () => {
 
     const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Filter = () => {
             max: 0
         },
         rating: []
-    }
+    };
     const initial = {
         type: [],
         company: [],
@@ -25,7 +25,7 @@ const Filter = () => {
             max: 0
         },
         rating: []
-    }
+    };
 
     if (sortLinkAnalyst.sortString) {
         sortLinkAnalyst.filterArray.forEach(object => {
@@ -36,12 +36,9 @@ const Filter = () => {
                 initial[object.item] = object.data;
             }
         })
-        console.log(initial, '====')
     }
-    console.log(sortLinkAnalyst)
 
     Object.keys(info).forEach(key => info[key] = makeFiltering(key, info.type));
-    console.log(info)
 
     function makeFiltering (filteringBy, type) {
 
@@ -81,12 +78,8 @@ const Filter = () => {
     const enumerationOnChangeHandler = (event) => {
 
         let currentValue = event.target;
-        let itemInit;
-        categoriesRu.forEach(item => {
-            if (item.categoryRu === currentValue.parentElement.parentElement.previousElementSibling.textContent) {
-                itemInit = item.categoryEn;
-            }
-        })
+        let itemInit = currentValue.parentElement.parentElement.previousElementSibling.id;
+
         navigate(sortLinkAnalyst.createUrl({
             item: itemInit,
             type: 'enumeration',
@@ -100,11 +93,6 @@ const Filter = () => {
         let currentInput = event.target;
         let itemInit = currentInput.parentElement.parentElement.previousElementSibling.id;
 
-        categoriesRu.forEach(item => {
-            if (item.categoryRu === currentInput.parentElement.parentElement.previousElementSibling.textContent) {
-                itemInit = item.categoryEn;
-            }
-        })
         switch (currentInput.id) {
             case 'sliderFirst': {
                 navigate(sortLinkAnalyst.createUrl({
@@ -147,7 +135,7 @@ const Filter = () => {
                 }
 
                 displayValOne.textContent = sliderFirst.value;
-                return;;
+                return;
             }
             case 'sliderSecond': {
                 const displayValTwo = document.getElementById('rangeSecond');

@@ -6,6 +6,7 @@
 .cartPage h2{
     margin-top: 1vw;
 }
+
 .cartList{
     width: 51vw;
     display: flex;
@@ -79,4 +80,9 @@
 }
 .summary hr{
     border: 0.5px solid var(--grey-dark-2);
+}
+.cartPage div h3{
+    color: var(--grey-dark-3);
+    font-size: 1.5vw;
+    margin-bottom: 3vw;
 }

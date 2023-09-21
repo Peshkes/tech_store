@@ -9,6 +9,7 @@ import ProductGallery from "./product_gallery/ProductGallery";
 import MainBlock from "./main_block/MainBlock";
 import AdditionalBlock from "./additional_block/AdditionalBlock";
 import ImageViewer from "./image_viewer/ImageViewer";
+import ProductsGallery from "../products_gallery/ProductsGallery";
 
 const ProductPage = () => {
     const navigate = useNavigate();
@@ -41,6 +42,8 @@ const ProductPage = () => {
                         <AdditionalBlock/>
                     </div>
                 </div>
+                <h2>Также могут понравиться</h2>
+                <ProductsGallery sorted={`type=${productObject.type}`} count={4} totalCount={8}/>
             </div>
             { isImageViewActive && isOverlayOpen && <ImageViewer images={productObject.imgBig} selectedImage={selectedImage}/>}
             <Banner/>

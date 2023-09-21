@@ -6,7 +6,7 @@ import Pagination from "../pagination/Pagination";
 import {useSortLinkAnalyst} from "../../../hooks/useSortLinkAnalyst";
 import {sortArray} from "../../../utils/functions";
 
-const ProductsGallery = ({sorted = '', count}) => {
+const ProductsGallery = ({sorted = '', count = 8}) => {
     const [page, setPage] = useState(1);
 
     //sorting

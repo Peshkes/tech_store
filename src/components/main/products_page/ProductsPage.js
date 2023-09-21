@@ -3,10 +3,13 @@ import style from './productsPage.module.css';
 import {HeaderContext} from "../../../utils/context";
 import Banner from "../banner/Banner";
 import BreadCrumbs from "../bread_crumbs/BreadCrumbs";
+import Sorter from "./sorter/Sorter";
+import Filter from "./filter/Filter";
 import ProductsGallery from "../products_gallery/ProductsGallery";
 
 const ProductsPage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
+
 
     useEffect(() => {
         if ('white' !== headerStyle)
@@ -15,12 +18,14 @@ const ProductsPage = () => {
 
     return (
         <div className={style.productsPage}>
-
             <div className="narrow">
                 <BreadCrumbs/>
-                <ProductsGallery count={2}/>
+                <Sorter/>
+                <div>
+                    <Filter/>
+                    <ProductsGallery count={6}/>
+                </div>
             </div>
-
             <Banner/>
         </div>
     );

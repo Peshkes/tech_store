@@ -40,3 +40,16 @@ export const promoCodes = [
     {string: 'my20%', sale: 20},
     {string: 'iamvaleralol', sale: 50}
 ]
+
+export const typeProductsRu = [
+    {typeRu: 'Ноутбуки', typeEn: 'laptops'},
+    {typeRu: 'Телефоны', typeEn: 'phones'},
+    {typeRu: 'Наушники', typeEn: 'headphones'}
+]
+
+export const categoriesRu = [
+    {categoryRu: 'Тип', categoryEn: 'type'},
+    {categoryRu: 'Производитель', categoryEn: 'company'},
+    {categoryRu: 'Цена', categoryEn: 'price'},
+    {categoryRu: 'Рейтинг', categoryEn: 'rating'}
+]

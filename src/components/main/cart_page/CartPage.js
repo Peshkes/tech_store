@@ -4,6 +4,7 @@ import {CartContext, HeaderContext} from "../../../utils/context";
 import BreadCrumbs from "../bread_crumbs/BreadCrumbs";
 import {Link} from "react-router-dom";
 import CartItem from "./cartItem/CartItem";
+import ProductsGallery from "../products_gallery/ProductsGallery";
 
 const CartPage = () => {
     const {setHeaderStyle, headerStyle} = useContext(HeaderContext);
@@ -53,7 +54,11 @@ const CartPage = () => {
                         </Link>
                     </div>
                 </div> :
-                <h2>Я пустна внутри, хоть и не показываю это снаружи ;(</h2>}
+                    <div>
+                        <h3>Я пуста внутри, хоть и не показываю это снаружи ;(</h3>
+                        <h2>Но вы можете положить в меня эти товары</h2>
+                        <ProductsGallery sorted={'other=new'} count={4} totalCount={8}/>
+                    </div>}
             </div>
         </div>
     );

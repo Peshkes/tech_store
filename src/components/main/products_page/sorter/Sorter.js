@@ -1,21 +1,27 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
+import {useSortLinkAnalyst} from "../../../../hooks/useSortLinkAnalyst";
 
 const Sorter = () => {
 
     const navigate = useNavigate();
+    const sortLinkAnalyst = useSortLinkAnalyst();
 
-    const sortingOnChangeHandler = () => {
+    const sortingOnChangeHandler = (event) => {
 
-        navigate('/blog')
+       navigate(sortLinkAnalyst.createUrl({
+            item: 'other',
+            type: 'enumerate',
+            data: [event.target.value]
+        }));
     }
     return (
             <div>
                 <select onChange={sortingOnChangeHandler}>
-                    <option>Все товары</option>
-                    <option>По возрастанию цены</option>
-                    <option>По убыванию цены</option>
-                    <option>По новизне</option>
+                    <option value={'all'}>Все товары</option>
+                    <option value={'price_up'}>По возрастанию цены</option>
+                    <option value={'price_down'}>По убыванию цены</option>
+                    <option value={'new'}>По новизне</option>
                 </select>
             </div>
     );

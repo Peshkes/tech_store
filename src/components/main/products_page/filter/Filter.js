@@ -96,10 +96,10 @@ const Filter = () => {
     }
 
     const rangeOnChangeHandler = (event) => {
-        console.log(event.target.value)
 
         let currentInput = event.target;
-        let itemInit;
+        let itemInit = currentInput.parentElement.parentElement.previousElementSibling.id;
+
         categoriesRu.forEach(item => {
             if (item.categoryRu === currentInput.parentElement.parentElement.previousElementSibling.textContent) {
                 itemInit = item.categoryEn;
@@ -125,8 +125,6 @@ const Filter = () => {
                 return;
             }
         }
-
-        // navigate(sortLinkAnalyst.createUrl({item: 'price', type: 'range', data: ['711', '50000']}))
     }
 
     const dropMenu = event => {
@@ -149,7 +147,7 @@ const Filter = () => {
                 }
 
                 displayValOne.textContent = sliderFirst.value;
-                break;
+                return;;
             }
             case 'sliderSecond': {
                 const displayValTwo = document.getElementById('rangeSecond');
@@ -159,7 +157,7 @@ const Filter = () => {
                 }
 
                 displayValTwo.textContent = sliderSecond.value;
-                break;
+                return;
             }
         }
     }
@@ -172,13 +170,12 @@ const Filter = () => {
         sliderFirst.value = info.price.min;
         sliderSecond.value = info.price.max;
 
-    }, [])
+    }, []);
 
     return (
         <div className={style.sorting}>
-
                 <div>
-                    <h4 onClick={dropMenu}>Тип</h4>
+                    <h4 onClick={dropMenu} id={'type'}>Тип</h4>
                     <div className={style.subMenu}>
                         {info.type.map(item =>
                             <label key={'label' + item}>
@@ -191,7 +188,7 @@ const Filter = () => {
                 </div>
 
                 <div>
-                    <h4 onClick={dropMenu}>Производитель</h4>
+                    <h4 onClick={dropMenu} id={'company'}>Производитель</h4>
                     <div className={style.subMenu}>
                         {info.company.map(item =>
                             <label key={'label'+ item}>
@@ -204,7 +201,7 @@ const Filter = () => {
                 </div>
 
                 <div>
-                    <h4 onClick={dropMenu}>Цена</h4>
+                    <h4 onClick={dropMenu} id={'price'}>Цена</h4>
                     <div className={style.rangeWrapper + ' ' + style.subMenu}>
                         <div className={style.values}>
                             <span id={'rangeFirst'}>{info.price.min}</span>
@@ -222,7 +219,7 @@ const Filter = () => {
                 </div>
 
                 <div>
-                    <h4 onClick={dropMenu}>Рейтинг</h4>
+                    <h4 onClick={dropMenu} id={'rating'}>Рейтинг</h4>
                     <div className={style.subMenu}>
                         {[1, 2, 3, 4, 5].map(item =>
                            <label key={'label' + item}>

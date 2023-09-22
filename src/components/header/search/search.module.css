@@ -3,15 +3,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 15px;
+    padding: 0 1vw;
     position: relative;
 }
 .search input{
-    margin-right: -12px;
+    margin-right: -1vw;
     box-sizing: border-box;
     width: 100%;
     min-width: 150px;
-    padding: 11px 11px 11px 36px;
+    padding: 1vw 1vw 1vw 3vw;
     outline:none;
     border-radius: 10px;
 }
@@ -38,10 +38,12 @@
 }
 .white input::placeholder{
     color: var(--grey-dark-3);
+    font-size: 1vw;
 }
 
 .search img {
-    margin-right: -30px;
+    width: 1.2vw;
+    margin-right: -2.3vw;
     z-index: 102;
 }
 .result{
@@ -50,7 +52,7 @@
     position: absolute;
     width: 100%;
     background: white;
-    top: 70px;
+    top: 6vw;
     padding: 1vw;
     z-index: 101;
 }

@@ -1,16 +1,17 @@
 .header{
-    height: 80px;
+    height: 5.5vw;
     display: flex;
+    font-size: 1.2vw;
 }
 
 .header a{
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    padding: 0 1vw;
 }
 .header a img{
-    width: 20px;
-    height: 20px;
+    width: 1.5vw;
+    height: 1.5vw;
 }
 .black{
     background-color: var(--header-dark);

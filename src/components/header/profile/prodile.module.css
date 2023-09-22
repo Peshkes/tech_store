@@ -1,6 +1,6 @@
 .profile{
     flex-shrink: 0;
-    margin-right: 15px;
+    margin-right: 1vw;
 }
 .active img{
     filter: invert(36%) sepia(96%) saturate(3010%) hue-rotate(212deg) brightness(104%) contrast(101%);

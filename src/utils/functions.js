@@ -27,6 +27,10 @@ export function sortArray (array, sorting) {
             array.sort((a, b) => b.price - a.price);
             return;
         }
+        case 'all': {
+            array.sort((a, b) => a.id - b.id);
+            return;
+        }
         default:
             return;
     }

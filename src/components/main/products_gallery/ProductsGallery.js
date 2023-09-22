@@ -26,10 +26,13 @@ const ProductsGallery = ({sorted = '', count = 8}) => {
                     return;
             }
         });
-
-        if (sortLinkAnalyst.sorting)
-            sortArray(sortedArr, sortLinkAnalyst.sorting);
     }
+
+    if (sortLinkAnalyst.sorting)
+        sortArray(sortedArr, sortLinkAnalyst.sorting);
+    else
+        sortArray(sortedArr, 'all');
+
 
     //current page calculation
     const totalCountProducts = sortedArr.length;

@@ -248,6 +248,6 @@ input[type='range']:active::-webkit-slider-thumb {
 }
 
 .subMenu > label:hover input[type='checkbox'] ~ .starBox > .star {
-    background-image: url("../../../../images/starGrey.svg")
+    background-image: url("../../../../images/starBlueDark.svg")
 }
 

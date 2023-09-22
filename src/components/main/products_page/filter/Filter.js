@@ -28,6 +28,10 @@ const Filter = () => {
         rating: []
     };
 
+
+    console.log(info, 'info')
+    console.log(initial, 'initial')
+
     if (sortLinkAnalyst.sortString) {
         sortLinkAnalyst.filterArray.forEach(object => {
             if (object.item === 'price') {
@@ -38,6 +42,8 @@ const Filter = () => {
             }
         })
     }
+
+    info.type = initial.type;
 
     Object.keys(info).forEach(key => info[key] = makeFiltering(key, info.type));
 
@@ -117,8 +123,10 @@ const Filter = () => {
     }
 
     const dropMenu = event => {
-        event.target.parentElement.lastElementChild.classList.toggle(style.show);
-        event.target.lastChild.classList.toggle(style.dropArrow);
+        event.currentTarget.parentElement.lastElementChild.classList.toggle(style.show);
+        event.currentTarget.lastChild.classList.toggle(style.dropArrow);
+
+
     }
 
     const makeSlide = (event) => {
@@ -169,12 +177,12 @@ const Filter = () => {
                         <div className={style.arrow}></div>
                     </h4>
                     <div className={style.subMenu}>
-                        {info.type.map(item =>
+                        {typeProductsRu.map(item =>
                             <label key={'label' + item}>
-                                <input defaultChecked={initial.type.includes(item) && true}
-                                       onChange={enumerationOnChangeHandler} type={'checkbox'} id={item} key={item}/>
+                                <input defaultChecked={initial.type.includes(item.typeEn) && true}
+                                       onChange={enumerationOnChangeHandler} type={'checkbox'} id={item.typeEn} key={item.typeEn}/>
                                 <div className={style.checkboxCheckmark}></div>
-                                <p>{typeProductsRu.map(element => element.typeEn === item && element.typeRu)}</p>
+                                <p>{item.typeRu}</p>
                             </label>
                         )}
                     </div>

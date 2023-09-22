@@ -6,7 +6,7 @@ import Pagination from "../pagination/Pagination";
 import {useSortLinkAnalyst} from "../../../hooks/useSortLinkAnalyst";
 import {sortArray} from "../../../utils/functions";
 
-const ProductsGallery = ({sorted = '', count = 8}) => {
+const ProductsGallery = ({sorted = '', count = 8, count_in_row = 4}) => {
     const [page, setPage] = useState(1);
 
     //sorting
@@ -45,7 +45,8 @@ const ProductsGallery = ({sorted = '', count = 8}) => {
 
     return (
         <div>
-            <div className={style.productsGallery}>
+            <div className={style.productsGallery}
+                 style={{gridTemplateColumns: `repeat(${count_in_row}, 1fr)`}}>
                 {sortedArr.length === 0 ? <div>
                         <h1>Таких товаров не найдено:(</h1>
                         <h2>Попробуй изменить запрос...</h2>

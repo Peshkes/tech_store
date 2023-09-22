@@ -29,6 +29,7 @@
 .btn:hover {
     color: white;
     background-color:  var(--grey-dark-3);
+    cursor: pointer;
     /*border-radius: 0.4vw;*/
 }
 

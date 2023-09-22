@@ -1,15 +1,12 @@
 .card{
-    /*max-width: min-content;*/
     margin: 1vw 6% 1vw 0;
-    width: 19%;
-    /*border: 2px solid blue;*/
+    width: 100%;
 }
 
 .imgCard {
     background-repeat: no-repeat;
     background-position: center;
     height: 16vw;
-    /*width: 16vw;*/
 }
 
 .discrCard {

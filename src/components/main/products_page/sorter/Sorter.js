@@ -1,6 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import {useSortLinkAnalyst} from "../../../../hooks/useSortLinkAnalyst";
+import style from './sorter.module.css';
 
 const Sorter = () => {
 
@@ -16,7 +17,7 @@ const Sorter = () => {
         }));
     }
     return (
-            <div>
+            <div className={style.sorter}>
                 <select onChange={sortingOnChangeHandler}>
                     <option value={'all'}>Все товары</option>
                     <option value={'price_up'}>По возрастанию цены</option>

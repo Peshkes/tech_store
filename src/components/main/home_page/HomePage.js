@@ -20,7 +20,7 @@ const HomePage = () => {
             <Slider/>
             <div className={'narrow'}>
                 <h2>Новые поступления</h2>
-                <ProductsGallery sorted={'other=new'} count={8}/>
+                <ProductsGallery sorted={'other=new'} count={8} count_in_row={4}/>
                 <h2>Блог</h2>
                 <ArticlesGallery count_on_page={3} count={3}/>
             </div>

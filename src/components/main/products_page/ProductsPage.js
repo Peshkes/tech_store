@@ -20,10 +20,12 @@ const ProductsPage = () => {
         <div className={style.productsPage}>
             <div className="narrow">
                 <BreadCrumbs/>
-                <Sorter/>
-                <div className={style.main}>
-                    <Filter/>
-                    <ProductsGallery count={6}/>
+                <div>
+                    <Sorter/>
+                    <div className={style.main}>
+                        <Filter/>
+                        <ProductsGallery count={6} count_in_row={3}/>
+                    </div>
                 </div>
             </div>
             <Banner/>

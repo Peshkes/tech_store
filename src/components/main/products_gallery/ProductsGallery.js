@@ -44,7 +44,7 @@ const ProductsGallery = ({sorted = '', count = 8, count_in_row = 4}) => {
     const currentProductPage = sortedArr.slice(firstProductIndex, lastProductIndex);
 
     return (
-        <div>
+        <div className={style.wrapper}>
             <div className={style.productsGallery}
                  style={{gridTemplateColumns: `repeat(${count_in_row}, 1fr)`}}>
                 {sortedArr.length === 0 ? <div>

@@ -27,10 +27,9 @@ const ProductCard = ({item}) => {
 
     return (
         <div className={style.card}>
-            <div>
-                <div className={style.images}>
-                    <Link to={`/product/${item.id}`}>
-                        {
+            <div className={style.images}>
+                <Link to={`/product/${item.id}`}>
+                    {
                         item.type === 'laptops' ?
                             <div className={style.imgCard}
                                  style={{backgroundImage: `url(${item.imgSmall[0]})`, backgroundSize: 'contain'}}>
@@ -39,18 +38,15 @@ const ProductCard = ({item}) => {
                                  style={{backgroundImage: `url(${item.imgSmall[0]})`, backgroundSize: '60%'}}>
                             </div>
                     }
-                    </Link>
+                </Link>
+                <div className={style.cartBox} onClick={() => {
+                    addToCart({
+                        id: item.id,
+                        count: 1
+                    })
 
-                        <div className={style.cartBox} onClick={() => {
-                            addToCart({
-                                id: item.id,
-                                count: 1
-                            })
-
-                        }}>
-                            <img className={style.cart} alt={'cart'} src={cart}/>
-                        </div>
-
+                }}>
+                    <img className={style.cart} alt={'cart'} src={cart}/>
                 </div>
             </div>
             <div>
@@ -58,7 +54,7 @@ const ProductCard = ({item}) => {
                 <p className={style.id + ' ' + style.discrCard}>#{item.id}</p>
                 <div className={style.info}>
                     <div className={style.discrCard + ' ' + style.name}>
-                            <Link className={style.link} to={`/product/${item.id}`}>{item.name}</Link>
+                        <Link className={style.link} to={`/product/${item.id}`}>{item.name}</Link>
                     </div>
                     <div className={style.price}>{item.price}<span className={style.rub}> ₽</span></div>
                 </div>

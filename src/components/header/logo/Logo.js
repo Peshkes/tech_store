@@ -1,15 +1,14 @@
 import React from 'react';
-import style from './logo.module.css';
-import logo from '../../../images/header/logos/logo_white.svg';
+import logoWhite from '../../../images/header/logos/logo_white.svg';
+import logoBlack from '../../../images/header/logos/logo_black.svg';
 import {Link} from "react-router-dom";
+import style from './logo.module.css';
 
-const Logo = () => {
+const Logo = ({headerStyle}) => {
     return (
-        <div className={style.logo}>
-            <Link to={'/'}>
-                <img src={logo} alt="logo"/>
-            </Link>
-        </div>
+        <Link className={style.logo} to={'/'}>
+            <img src={headerStyle === 'white' ? logoBlack : logoWhite} alt="logo"/>
+        </Link>
     );
 };
 

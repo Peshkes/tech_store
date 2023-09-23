@@ -1,13 +1,18 @@
 import style from './cart.module.css';
-import React from 'react';
-import cart from "../../../images/header/cart.svg";
-import {Link} from "react-router-dom";
+import React, {useContext} from 'react';
+import cartWhite from "../../../images/header/cartWhite.svg";
+import cartBlack from "../../../images/header/cartBlack.svg";
+import {NavLink} from "react-router-dom";
+import {CartContext} from "../../../utils/context";
 
-const Cart = () => {
+const Cart = ({headerStyle}) => {
+    const {cart} = useContext(CartContext);
+
     return (
-        <Link to={'cart'} className={style.cart}>
-            <img src={cart} alt="cart"/>
-        </Link>
+            <NavLink to={'cart'} className={({isActive}) => isActive ? style.cart + ' ' + style["active"] : style.cart}>
+                {cart.length !== 0 && <div className={style.icon}>{cart.length}</div>}
+                <img src={headerStyle === 'white' ? cartBlack : cartWhite} alt="cart"/>
+            </NavLink>
     );
 };
 

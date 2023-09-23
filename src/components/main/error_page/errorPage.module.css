@@ -1,1 +1,24 @@
-.errorPage{}
+.errorPage h3{
+    font-size: 3vw;
+    margin: 0;
+}
+.note{
+    font-size: 1vw;
+    margin: 0 0 5vw;
+    color: var(--grey-dark-3);
+}
+.link{
+    text-decoration: none;
+    color: white;
+    font-size: 1vw;
+    background-color: black;
+    padding: 1vw;
+    border-radius: 10px;
+}
+.errorPage{
+    padding: 5vw 0;
+}
+.alsoLike{
+    font-size: 2.2vw;
+    margin: 5vw 0 3vw 0;
+}

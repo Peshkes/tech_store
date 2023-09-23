@@ -1,20 +1,22 @@
 .header{
-    height: 79px;
-    background-color: var(--header-dark);
+    height: 5.5vw;
     display: flex;
+    font-size: 1.2vw;
 }
-.header div{
+
+.header a{
     display: flex;
     align-items: center;
+    padding: 0 1vw;
 }
-.header div button{
-    background-color: initial;
-    height: 79px;
-    width: 79px;
-    background-size: 75%;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+.header a img{
+    width: 1.5vw;
+    height: 1.5vw;
 }
+.black{
+    background-color: var(--header-dark);
+}
+.white{
+    background-color: white;
+}
+

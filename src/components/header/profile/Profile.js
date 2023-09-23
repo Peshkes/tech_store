@@ -1,18 +1,15 @@
 import style from './prodile.module.css';
-import React, {Component} from 'react';
-import profile from "../../../images/header/profile.svg";
-import {Link} from "react-router-dom";
+import React from 'react';
+import profileBlack from "../../../images/header/profileBlack.svg";
+import profileWhite from "../../../images/header/profileWhite.svg";
+import {NavLink} from "react-router-dom";
 
-class Profile extends Component {
-    render() {
-        return (
-            <div>
-                <Link className={style.profile} to={'profile/auth'}>
-                    <img src={profile} alt="profile"/>
-                </Link>
-            </div>
-        );
-    }
+const Profile = ({headerStyle}) => {
+    return (
+        <NavLink to={'profile/auth'} className={({isActive}) => isActive ? style["active"] + ' ' + style.profile : style.profile}>
+            {headerStyle === 'white' ? <img src={profileBlack} alt="profile"/> : <img src={profileWhite} alt="profile"/>}
+        </NavLink>
+    );
 }
 
 export default Profile;

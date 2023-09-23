@@ -7,15 +7,15 @@ import Search from "./search/Search";
 import Cart from "./cart/Cart";
 import Profile from "./profile/Profile";
 
-const Header = () => {
+const Header = ({headerStyle}) => {
     return (
-        <header className={style.header}>
-            <Logo/>
-            <Menu/>
+        <header className={style.header +' '+ style[headerStyle]}>
+            <Logo headerStyle={headerStyle} />
+            <Menu headerStyle={headerStyle}/>
             <EmptyBlock/>
-            <Search/>
-            <Cart/>
-            <Profile/>
+            <Search headerStyle={headerStyle}/>
+            <Cart headerStyle={headerStyle}/>
+            <Profile headerStyle={headerStyle}/>
         </header>
     );
 };

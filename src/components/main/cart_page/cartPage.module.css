@@ -1,1 +1,88 @@
-.cartPage{}
+.cartPage{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+}
+.cartPage h2{
+    margin-top: 1vw;
+}
+
+.cartList{
+    width: 51vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.summary{
+    box-sizing: border-box;
+    width: 22vw;
+    position: sticky;
+    top: 5vw;
+    padding: 2vw;
+    border: 1px solid var(--grey-dark-3);
+    border-radius: 10px;
+    height: min-content;
+}
+.summary h3{
+    margin-top: 0;
+    font-size: 1.5vw;
+    font-weight: 500;
+}
+.subText{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1vw;
+}
+.promo{
+    display: flex;
+}
+.promo input{
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid var(--grey-dark-3);
+    padding: 0.8vw;
+    margin-right: 1vw;
+    font-size: 1vw;
+    width: 60%;
+}
+.promo button{
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid var(--grey-dark-3);
+    padding: 0.8vw;
+    font-size: 1vw;
+    color: black;
+    background-color: inherit;
+    width: 40%;
+}
+.promo button:active{
+    background-color: var(--grey-dark-2);
+}
+.price{
+    margin-bottom: 0;
+    margin-top: 1.7vw;
+}
+.summary a button{
+    width: 100%;
+    background-color: var(--accent-color-1-4);
+    padding: 1vw;
+    border-radius: 10px;
+    font-size: 1.5vw;
+    border: none;
+    color:white;
+    margin-top: 1vw;
+}
+.summary a button:active{
+    background-color: var(--accent-color-1-3);
+}
+.summary a button:hover{
+    cursor: pointer;
+}
+.summary hr{
+    border: 0.5px solid var(--grey-dark-2);
+}
+.cartPage div h3{
+    color: var(--grey-dark-3);
+    font-size: 1.5vw;
+    margin-bottom: 3vw;
+}

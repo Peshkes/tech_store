@@ -1,0 +1,14 @@
+.productGallery{
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.productGallery div{
+    width: 40%;
+    margin: 5%;
+    aspect-ratio: 1;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}

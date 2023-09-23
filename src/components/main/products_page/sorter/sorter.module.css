@@ -1,0 +1,31 @@
+.sorter {
+    display: block;
+    text-align: right;
+    margin-bottom: 2vw;
+}
+
+.sorter select {
+    border: 1px solid var(--grey-dark-2);
+    border-radius: 5px;
+    padding: 0.5vw 1.5vw 0.5vw 0.5vw;
+    width: min-content;
+    font-size: 1vw;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("../../../../images/arrowDown.svg");
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 0.7vw;
+    background-position: right 1vw center ;
+    outline: none;
+}
+
+.sorter select::-ms-expand {
+    display: none;
+}
+
+.sorter select:hover {
+    cursor: pointer;
+}
+

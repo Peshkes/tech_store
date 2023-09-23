@@ -1,0 +1,25 @@
+.imageViewer{
+    z-index: 200;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+.image{
+    max-width: 70vw;
+    max-height: 90vh;
+}
+.prev, .next {
+    cursor: pointer;
+    top: Calc(50% - 50px);
+    padding: 16px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}

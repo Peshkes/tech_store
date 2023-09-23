@@ -10,7 +10,6 @@ const ArticlesGallery = ({count_on_page = 6, count = articles.length}) => {
     const currentArticles = articles.sort((a, b) => b.date - a.date).slice(0, count);
     const pagesCount = Math.ceil(count / count_on_page);
 
-
     useEffect(() => {
         if (isInitialMount.current) {
             isInitialMount.current = false;

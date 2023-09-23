@@ -55,18 +55,31 @@ export const useSortLinkAnalyst = (customString) => {
                 filterArray.push(sortingObject);
             else {
                 if (sortingObject.type === 'enumeration') {
-                    if (sortingObject.checked) {
-                        filterArray[index].data.push(...sortingObject.data);
-                    } else {
-                        filterArray[index].data.splice(filterArray[index].data.findIndex(item => item === sortingObject.data[0]), 1);
-                        if (filterArray[index].data.length === 0)
-                            filterArray.splice(index, 1);
-                    }
+                    addOrRemoveItem(sortingObject, index);
                 } else if (sortingObject.type === 'range') {
                     filterArray[index] = sortingObject;
                 }
             }
         }
+        return formString()
+    }
+
+    let rebuildUrl = (sortingObject) => {
+        filterArray = filterArray.find(object => object.item === sortingObject.item);
+        addOrRemoveItem(sortingObject, 0);
+        return formString();
+    };
+
+    function addOrRemoveItem(sortingObject, index){
+        if (sortingObject.checked) {
+            filterArray[index].data.push(...sortingObject.data);
+        } else {
+            filterArray[index].data.splice(filterArray[index].data.findIndex(item => item === sortingObject.data[0]), 1);
+            if (filterArray[index].data.length === 0)
+                filterArray.splice(index, 1);
+        }
+    }
+    function formString() {
         if (sorting)
             filterArray = filterArray.concat([{item: 'other', type: 'enumeration', data: [sorting]}]);
         return filterArray.map(object => {
@@ -82,6 +95,7 @@ export const useSortLinkAnalyst = (customString) => {
         sortString,
         filterArray,
         sorting,
-        createUrl
+        createUrl,
+        rebuildUrl
     };
 }

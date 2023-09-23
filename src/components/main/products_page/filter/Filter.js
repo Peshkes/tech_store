@@ -28,10 +28,6 @@ const Filter = () => {
         rating: []
     };
 
-
-    console.log(info, 'info')
-    console.log(initial, 'initial')
-
     if (sortLinkAnalyst.sortString) {
         sortLinkAnalyst.filterArray.forEach(object => {
             if (object.item === 'price') {
@@ -47,7 +43,7 @@ const Filter = () => {
 
     Object.keys(info).forEach(key => info[key] = makeFiltering(key, info.type));
 
-    function makeFiltering (filteringBy, type) {
+    function makeFiltering(filteringBy, type) {
 
         let allKinds = [];
         if (filteringBy === 'price') {
@@ -168,86 +164,87 @@ const Filter = () => {
         sliderSecond.value = info.price.max;
 
     }, []);
-
     return (
         <div className={style.sorting}>
-                <div>
-                    <h4 onClick={dropMenu} id={'type'}>
-                        Тип
-                        <div className={style.arrow}></div>
-                    </h4>
-                    <div className={style.subMenu}>
-                        {typeProductsRu.map(item =>
-                            <label key={'label' + item}>
-                                <input defaultChecked={initial.type.includes(item.typeEn) && true}
-                                       onChange={enumerationOnChangeHandler} type={'checkbox'} id={item.typeEn} key={item.typeEn}/>
-                                <div className={style.checkboxCheckmark}></div>
-                                <p>{item.typeRu}</p>
-                            </label>
-                        )}
-                    </div>
+            <div>
+                <h4 onClick={dropMenu} id={'type'}>
+                    Тип
+                    <div className={style.arrow}></div>
+                </h4>
+                <div className={style.subMenu}>
+                    {typeProductsRu.map(item =>
+                        <label key={'label' + item}>
+                            <input defaultChecked={initial.type.includes(item.typeEn) && true}
+                                   onChange={enumerationOnChangeHandler} type={'checkbox'} id={item.typeEn}
+                                   key={item.typeEn}/>
+                            <div className={style.checkboxCheckmark}></div>
+                            <p>{item.typeRu}</p>
+                        </label>
+                    )}
                 </div>
+            </div>
 
-                <div>
-                    <h4 onClick={dropMenu} id={'company'}>
-                        Производитель
-                        <div className={style.arrow}></div>
-                    </h4>
-                    <div className={style.subMenu}>
-                        {info.company.map(item =>
-                            <label key={'label'+ item}>
-                                <input defaultChecked={initial.company.includes(item.toLowerCase()) && true}
+            <div>
+                <h4 onClick={dropMenu} id={'company'}>
+                    Производитель
+                    <div className={style.arrow}></div>
+                </h4>
+                <div className={style.subMenu}>
+                    {info.company.map(item =>
+                        <label key={'label' + item}>
+                            <input defaultChecked={initial.company.includes(item.toLowerCase()) && true}
                                    onChange={enumerationOnChangeHandler} type={'checkbox'} id={item} key={item}/>
-                                <div className={style.checkboxCheckmark}></div>
-                                <p>{item}</p>
-                            </label>
-                        )}
-                        </div>
+                            <div className={style.checkboxCheckmark}></div>
+                            <p>{item}</p>
+                        </label>
+                    )}
                 </div>
+            </div>
 
-                <div>
-                    <h4 onClick={dropMenu} id={'price'}>
-                        Цена
-                        <div className={style.arrow}></div>
-                    </h4>
-                    <div className={style.rangeWrapper + ' ' + style.subMenu}>
-                        <div className={style.values}>
-                            <span id={'rangeFirst'}>{info.price.min}</span>
-                            <span> - </span>
-                            <span id={'rangeSecond'}>{info.price.max}₽</span>
-                        </div>
-                        <div className={style.container}>
-                            <div id={'slTrack'} className={style.sliderTrack}></div>
-                            <input onInput={makeSlide} id={'sliderFirst'} className={style.inputLeft} type={'range'}
-                                   min={info.price.min} max={info.price.max} onMouseUp={rangeOnChangeHandler}/>
-                            <input onInput={makeSlide} id={'sliderSecond'} className={style.inputRight} type={'range'}
-                                   min={info.price.min} max={info.price.max} onMouseUp={rangeOnChangeHandler}/>
-                        </div>
+            <div>
+                <h4 onClick={dropMenu} id={'price'}>
+                    Цена
+                    <div className={style.arrow}></div>
+                </h4>
+                <div className={style.rangeWrapper + ' ' + style.subMenu}>
+                    <div className={style.values}>
+                        <span id={'rangeFirst'}>{info.price.min}</span>
+                        <span> - </span>
+                        <span id={'rangeSecond'}>{info.price.max}₽</span>
+                    </div>
+                    <div className={style.container}>
+                        <div id={'slTrack'} className={style.sliderTrack}></div>
+                        <input onInput={makeSlide} id={'sliderFirst'} className={style.inputLeft} type={'range'}
+                               min={info.price.min} max={info.price.max} defaultValue={info.price.min} onMouseUp={rangeOnChangeHandler}/>
+                        <input onInput={makeSlide} id={'sliderSecond'} className={style.inputRight} type={'range'}
+                               min={info.price.min} max={info.price.max} defaultValue={info.price.max} onMouseUp={rangeOnChangeHandler}/>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <h4 onClick={dropMenu} id={'rating'}>
-                        Рейтинг
-                        <div className={style.arrow}></div>
-                    </h4>
-                    <div className={style.subMenu}>
-                        {[1, 2, 3, 4, 5].map(item =>
-                           <label key={'label' + item}>
-                               <input defaultChecked={initial.rating.includes(String(item)) && true}
-                                      onChange={enumerationOnChangeHandler} type={'checkbox'} id={String(item)} key={item}/>
-                               <div className={style.checkboxCheckmark}></div>
-                               <div className={style.starBox}>
-                                   {[1, 2, 3, 4, 5].map(number => {
-                                   if (number <= item) {
-                                       return <div className={style.star}></div>
-                                   }
-                               })}
-                               </div>
-                           </label>
-                        )}
-                    </div>
+            <div>
+                <h4 onClick={dropMenu} id={'rating'}>
+                    Рейтинг
+                    <div className={style.arrow}></div>
+                </h4>
+                <div className={style.subMenu}>
+                    {[1, 2, 3, 4, 5].map(item =>
+                        <label key={'label' + item}>
+                            <input defaultChecked={initial.rating.includes(String(item)) && true}
+                                   onChange={enumerationOnChangeHandler} type={'checkbox'} id={String(item)}
+                                   key={item}/>
+                            <div className={style.checkboxCheckmark}></div>
+                            <div className={style.starBox}>
+                                {[1, 2, 3, 4, 5].map(number => {
+                                    if (number <= item) {
+                                        return <div className={style.star}></div>
+                                    }
+                                })}
+                            </div>
+                        </label>
+                    )}
                 </div>
+            </div>
 
         </div>
     );

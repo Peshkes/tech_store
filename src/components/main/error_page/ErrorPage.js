@@ -18,7 +18,7 @@ const ErrorPage = () => {
                 <h3>Error 404</h3>
                 <p className={style.note}>Этой страницы не существует<br/>(Тогда на что же вы смотрите?)</p>
                 <Link className={style.link} to={'/'}>Главная</Link>
-                <h2 className={style.alsoLike}>Лучше посмотрите эти товары</h2>
+                <h2 className={style.alsoLike}>Лучше посмотрите на эти товары</h2>
                 <ProductsGallery sorted={'other=new'} count={4} totalCount={8}/>
             </div>
         </div>

@@ -28,10 +28,6 @@ const Filter = () => {
         rating: []
     };
 
-
-    console.log(JSON.parse(JSON.stringify(info)), 'info')
-    console.log(initial, 'initial')
-
     if (sortLinkAnalyst.sortString) {
         sortLinkAnalyst.filterArray.forEach(object => {
             if (object.item === 'price') {
@@ -87,12 +83,22 @@ const Filter = () => {
         let currentValue = event.target;
         let itemInit = currentValue.parentElement.parentElement.previousElementSibling.id;
 
-        navigate(sortLinkAnalyst.createUrl({
-            item: itemInit,
-            type: 'enumeration',
-            data: [currentValue.id.toLowerCase()],
-            checked: currentValue.checked
-        }))
+       if (itemInit === 'type') {
+            navigate(sortLinkAnalyst.rebuildUrl({
+                item: itemInit,
+                type: 'enumeration',
+                data: [currentValue.id.toLowerCase()],
+                checked: currentValue.checked
+            }))
+        } else {
+            navigate(sortLinkAnalyst.createUrl({
+                item: itemInit,
+                type: 'enumeration',
+                data: [currentValue.id.toLowerCase()],
+                checked: currentValue.checked
+            }))
+        }
+        currentValue.checked = !currentValue.checked;
     }
 
     const rangeOnChangeHandler = (event) => {
@@ -161,10 +167,10 @@ const Filter = () => {
         const sliderFirst = document.getElementById('sliderFirst');
         const sliderSecond = document.getElementById('sliderSecond');
 
-        sliderFirst.value = info.price.min;
-        sliderSecond.value = info.price.max;
+        sliderFirst.value = initial.price.min !== 0 && initial.price.min >= info.price.min ? initial.price.min : info.price.min;
+        sliderSecond.value = initial.price.max !== 0 && initial.price.max <= info.price.max ? initial.price.max : info.price.max
 
-    }, [info.price, info.type]);
+    }, [info.price]);
 
     return (
         <div className={style.sorting}>
@@ -175,9 +181,11 @@ const Filter = () => {
                     </h4>
                     <div className={style.subMenu}>
                         {typeProductsRu.map(item =>
-                            <label key={'label-type' + item}>
-                                <input defaultChecked={initial.type.includes(item.typeEn) && true}
-                                       onChange={enumerationOnChangeHandler} type={'checkbox'} id={item.typeEn} key={item.typeEn}/>
+                            <label key={'label-type' + item.typeEn}>
+                                <input checked={initial.type.includes(item.typeEn)}
+                                       onClick={enumerationOnChangeHandler}
+                                       onChange={() => {}}
+                                       type={'checkbox'} id={item.typeEn} key={'input' + item.typeEn}/>
                                 <div key={'type' + item.typeEn} className={style.checkboxCheckmark}></div>
                                 <p key={'p-type' + item.typeEn}>{item.typeRu}</p>
                             </label>
@@ -193,8 +201,10 @@ const Filter = () => {
                     <div className={style.subMenu}>
                         {info.company.map(item =>
                             <label key={'label-company'+ item}>
-                                <input defaultChecked={initial.company.includes(item.toLowerCase()) && true}
-                                   onChange={enumerationOnChangeHandler} type={'checkbox'} id={item} key={item}/>
+                                <input checked={initial.company.includes(item.toLowerCase())}
+                                       onClick={enumerationOnChangeHandler}
+                                       onChange={() => {}}
+                                       type={'checkbox'} id={item} key={item}/>
                                 <div key={'company' + item} className={style.checkboxCheckmark}></div>
                                 <p key={'p-company' + item}>{item}</p>
                             </label>
@@ -209,16 +219,20 @@ const Filter = () => {
                     </h4>
                     <div className={style.rangeWrapper + ' ' + style.subMenu}>
                         <div className={style.values}>
-                            <span id={'rangeFirst'}>{info.price.min}</span>
+                            <span id={'rangeFirst'}>{initial.price.min !== 0 && initial.price.min >= info.price.min ? initial.price.min : info.price.min}</span>
                             <span> - </span>
-                            <span id={'rangeSecond'}>{info.price.max} ₽</span>
+                            <span id={'rangeSecond'}>{initial.price.max !== 0 && initial.price.max <= info.price.max ? initial.price.max : info.price.max} ₽</span>
                         </div>
                         <div className={style.container}>
                             <div id={'slTrack'} className={style.sliderTrack}></div>
                             <input onInput={makeSlide} id={'sliderFirst'} className={style.inputLeft} type={'range'}
-                                   min={info.price.min} max={info.price.max} defaultValue={info.price.min} onMouseUp={rangeOnChangeHandler}/>
+                                   min={info.price.min} max={info.price.max}
+                                   defaultValue={initial.price.min !== 0 && initial.price.min >= info.price.min ? initial.price.min : info.price.min}
+                                   onMouseUp={rangeOnChangeHandler}/>
                             <input onInput={makeSlide} id={'sliderSecond'} className={style.inputRight} type={'range'}
-                                   min={info.price.min} max={info.price.max} defaultValue={info.price.max} onMouseUp={rangeOnChangeHandler}/>
+                                   min={info.price.min} max={info.price.max}
+                                   defaultValue={initial.price.max !== 0 && initial.price.max <= info.price.max ? initial.price.max : info.price.max}
+                                   onMouseUp={rangeOnChangeHandler}/>
                         </div>
                     </div>
                 </div>
@@ -231,8 +245,10 @@ const Filter = () => {
                     <div className={style.subMenu}>
                         {[1, 2, 3, 4, 5].map(item =>
                            <label key={'label' + item}>
-                               <input defaultChecked={initial.rating.includes(String(item)) && true}
-                                      onChange={enumerationOnChangeHandler} type={'checkbox'} id={String(item)} key={item}/>
+                               <input checked={initial.rating.includes(String(item))}
+                                      onClick={enumerationOnChangeHandler}
+                                      onChange={() => {}}
+                                      type={'checkbox'} id={String(item)} key={item}/>
                                <div key={'check' + item} className={style.checkboxCheckmark}></div>
                                <div key={'box' + item} className={style.starBox}>
                                    {[1, 2, 3, 4, 5].map(number => {

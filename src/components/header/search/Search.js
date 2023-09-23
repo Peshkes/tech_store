@@ -14,20 +14,20 @@ const Search = ({headerStyle}) => {
     const {isSearchResultActive, setIsSearchResultActive, isOverlayOpen, setIsOverlayOpen} = useContext(OverlayContext);
 
     const changeHandler = event => {
-        const text = event.target.value;
-        setText(text)
-        if (!isSearchResultActive && text.length > 0){
+        const inputValue = event.target.value;
+        setText(inputValue);
+        if (!isSearchResultActive && inputValue.length > 0){
             setIsOverlayOpen(true);
             setIsSearchResultActive(true);
         }
-        else if (setIsOverlayOpen && text.length === 0){
+        else if (setIsOverlayOpen && inputValue.length === 0){
             setIsOverlayOpen(false);
             setIsSearchResultActive(false);
-        } else if (isSearchResultActive && text.length > 0)
+        } else if (isSearchResultActive && inputValue.length > 0)
             setIsOverlayOpen(true);
 
-        setResultProducts(productsArr.filter(item => item.name.toLowerCase().includes(text.toLowerCase().trim())).slice(0,3));
-        setResultArticles(articles.filter(item => item.title.toLowerCase().includes(text.toLowerCase().trim())).slice(0,2));
+        setResultProducts(productsArr.filter(item => item.name.toLowerCase().includes(inputValue.toLowerCase().trim())).slice(0,3));
+        setResultArticles(articles.filter(item => item.title.toLowerCase().includes(inputValue.toLowerCase().trim())).slice(0,2));
     }
 
     return (

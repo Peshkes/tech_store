@@ -6,7 +6,7 @@ import Pagination from "../pagination/Pagination";
 import {useSortLinkAnalyst} from "../../../hooks/useSortLinkAnalyst";
 import {sortArray} from "../../../utils/functions";
 
-const ProductsGallery = ({sorted = '', count = 8, count_in_row = 4}) => {
+const ProductsGallery = ({sorted = '', count = 8, count_in_row = 4, totalCount = productsArr.length}) => {
     const [page, setPage] = useState(1);
 
     //sorting
@@ -35,8 +35,14 @@ const ProductsGallery = ({sorted = '', count = 8, count_in_row = 4}) => {
 
 
     //current page calculation
-    const totalCountProducts = sortedArr.length;
-    const pagesCount = Math.ceil(totalCountProducts / count);
+
+    // const totalCountProducts = sortedArr.length;
+    // const pagesCount = Math.ceil(totalCountProducts / count);
+
+    if (sortLinkAnalyst.filterArray && sortedArr.length < totalCount) {
+        totalCount = sortedArr.length;
+    }
+    const pagesCount = Math.ceil(totalCount / count);
 
     //constants for pagination
     const lastProductIndex = page * count;
@@ -45,15 +51,15 @@ const ProductsGallery = ({sorted = '', count = 8, count_in_row = 4}) => {
 
     return (
         <div className={style.wrapper}>
+            {sortedArr.length === 0 ?
+                <div>
+                    <h1>Таких товаров не найдено:(</h1>
+                    <h2>Попробуй изменить запрос...</h2>
+                </div> :
             <div className={style.productsGallery}
                  style={{gridTemplateColumns: `repeat(${count_in_row}, 1fr)`}}>
-                {sortedArr.length === 0 ? <div>
-                        <h1>Таких товаров не найдено:(</h1>
-                        <h2>Попробуй изменить запрос...</h2>
-                    </div> :
-                    currentProductPage.map(item => <ProductCard key={item.id} item={item}/>)
-                }
-            </div>
+                {currentProductPage.map(item => <ProductCard key={item.id} item={item}/>)}
+            </div>}
             <Pagination pageNumber={page} setPage={setPage} pagesCount={pagesCount}/>
         </div>
     );

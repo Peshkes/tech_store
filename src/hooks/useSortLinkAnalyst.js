@@ -65,14 +65,19 @@ export const useSortLinkAnalyst = (customString) => {
     }
 
     let rebuildUrl = (sortingObject) => {
-        filterArray = filterArray.find(object => object.item === sortingObject.item);
+        filterArray = [filterArray.find(object => object.item === sortingObject.item)];
+
         addOrRemoveItem(sortingObject, 0);
         return formString();
     };
 
     function addOrRemoveItem(sortingObject, index){
         if (sortingObject.checked) {
-            filterArray[index].data.push(...sortingObject.data);
+            if (filterArray[index]) {
+                filterArray[index].data.push(...sortingObject.data);
+            } else {
+                filterArray[0] = {...sortingObject};
+            }
         } else {
             filterArray[index].data.splice(filterArray[index].data.findIndex(item => item === sortingObject.data[0]), 1);
             if (filterArray[index].data.length === 0)

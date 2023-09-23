@@ -1,5 +1,13 @@
 .card{
     width: 100%;
+    transition: 0.5s;
+    border: 1px solid var(--grey-dark-1);
+    border-radius: 10px;
+    padding: 1vw;
+}
+
+.card:hover{
+    transform: scale(1.1);
 }
 
 .imgCard {
@@ -29,8 +37,16 @@
     cursor: pointer;
 }
 
+.cartBox:hover {
+    background-color: var(--accent-color-1-4);
+}
+
 .cart {
     height: 1vw;
+}
+
+.cartBox:hover .cart {
+    filter: invert(100%) sepia(100%) brightness(150%);
 }
 
 .stars {

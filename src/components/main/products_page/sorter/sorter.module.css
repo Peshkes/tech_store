@@ -1,6 +1,7 @@
 .sorter {
     display: block;
     text-align: right;
+    margin-bottom: 2vw;
 }
 
 .sorter select {

@@ -115,6 +115,53 @@ import product13_3_x2 from '../images/products/laptops/13/13-3-x2.webp';
 import product13_4 from '../images/products/laptops/13/13-4.webp';
 import product13_4_x2 from '../images/products/laptops/13/13-4-x2.webp';
 
+import product14_1 from '../images/products/headphones/14/14-1.webp';
+import product14_1_x2 from '../images/products/headphones/14/14-1-x2.webp';
+import product14_2 from '../images/products/headphones/14/14-2.webp';
+import product14_2_x2 from '../images/products/headphones/14/14-2-x2.webp';
+import product14_3 from '../images/products/headphones/14/14-3.webp';
+import product14_3_x2 from '../images/products/headphones/14/14-3-x2.webp';
+import product14_4 from '../images/products/headphones/14/14-4.webp';
+import product14_4_x2 from '../images/products/headphones/14/14-4-x2.webp';
+
+import product15_1 from '../images/products/headphones/15/15-1.webp';
+import product15_1_x2 from '../images/products/headphones/15/15-1-x2.webp';
+import product15_2 from '../images/products/headphones/15/15-2.webp';
+import product15_2_x2 from '../images/products/headphones/15/15-2-x2.webp';
+import product15_3 from '../images/products/headphones/15/15-3.webp';
+import product15_3_x2 from '../images/products/headphones/15/15-3-x2.webp';
+import product15_4 from '../images/products/headphones/15/15-4.webp';
+import product15_4_x2 from '../images/products/headphones/15/15-4-x2.webp';
+
+import product16_1 from '../images/products/laptops/16/16-1.webp';
+import product16_1_x2 from '../images/products/laptops/16/16-1-x2.webp';
+import product16_2 from '../images/products/laptops/16/16-2.webp';
+import product16_2_x2 from '../images/products/laptops/16/16-2-x2.webp';
+import product16_3 from '../images/products/laptops/16/16-3.webp';
+import product16_3_x2 from '../images/products/laptops/16/16-3-x2.webp';
+import product16_4 from '../images/products/laptops/16/16-4.webp';
+import product16_4_x2 from '../images/products/laptops/16/16-4-x2.webp';
+
+import product17_1 from '../images/products/laptops/17/17-1.webp';
+import product17_1_x2 from '../images/products/laptops/17/17-1-x2.webp';
+import product17_2 from '../images/products/laptops/17/17-2.webp';
+import product17_2_x2 from '../images/products/laptops/17/17-2-x2.webp';
+import product17_3 from '../images/products/laptops/17/17-3.webp';
+import product17_3_x2 from '../images/products/laptops/17/17-3-x2.webp';
+import product17_4 from '../images/products/laptops/17/17-4.webp';
+import product17_4_x2 from '../images/products/laptops/17/17-4-x2.webp';
+
+import product18_1 from '../images/products/phones/18/18-1.webp';
+import product18_1_x2 from '../images/products/phones/18/18-1-x2.webp';
+import product18_2 from '../images/products/phones/18/18-2.webp';
+import product18_2_x2 from '../images/products/phones/18/18-2-x2.webp';
+import product18_3 from '../images/products/phones/18/18-3.webp';
+import product18_3_x2 from '../images/products/phones/18/18-3-x2.webp';
+import product18_4 from '../images/products/phones/18/18-4.webp';
+import product18_4_x2 from '../images/products/phones/18/18-4-x2.webp';
+
+
+
 //rating, company, price, type, other=[price_up, price_down, new]
 //products/rating=3-5&company=apple&price=0-300000&type=phones+laptops+headphones&other=price_up
 
@@ -182,7 +229,7 @@ export const productsArr = [
 
     {
         id: 6,
-        name: 'Apple iPhone 15',
+        name: 'Apple iPhone 15 pro',
         company: 'Apple',
         type: 'phones',
         imgSmall: [product6_1, product6_2, product6_3, product6_4],
@@ -266,5 +313,60 @@ export const productsArr = [
         imgBig: [product13_1_x2, product13_2_x2, product13_3_x2, product13_4_x2],
         rating: 5,
         price: 209990
+    },
+
+    {
+        id: 14,
+        name: 'Edifier W820NB Plus',
+        company: 'Edifier',
+        type: 'headphones',
+        imgSmall: [product14_1, product14_2, product14_3, product14_4],
+        imgBig: [product14_1_x2, product14_2_x2, product14_3_x2, product14_4_x2],
+        rating: 1,
+        price: 5190
+    },
+
+    {
+        id: 15,
+        name: 'Creative Zen Air Hybrid',
+        company: 'Creative',
+        type: 'headphones',
+        imgSmall: [product15_1, product15_2, product15_3, product15_4],
+        imgBig: [product15_1_x2, product15_2_x2, product15_3_x2, product15_4_x2],
+        rating: 3,
+        price: 8999
+    },
+
+    {
+        id: 16,
+        name: 'MSI Titan GT77HX 13VI-213RU',
+        company: 'MSI',
+        type: 'laptops',
+        imgSmall: [product16_1, product16_2, product16_3, product16_4],
+        imgBig: [product16_1_x2, product16_2_x2, product16_3_x2, product16_4_x2],
+        rating: 5,
+        price: 569990
+    },
+
+    {
+        id: 17,
+        name: 'MSI Raider GE67HX',
+        company: 'MSI',
+        type: 'laptops',
+        imgSmall: [product17_1, product17_2, product17_3, product17_4],
+        imgBig: [product17_1_x2, product17_2_x2, product17_3_x2, product17_4_x2],
+        rating: 5,
+        price: 209990
+    },
+
+    {
+        id: 18,
+        name: 'Samsung Galaxy Z Fold 5',
+        company: 'Samsung',
+        type: 'phones',
+        imgSmall: [product18_1, product18_2, product18_3, product18_4],
+        imgBig: [product18_1_x2, product18_2_x2, product18_3_x2, product18_4_x2],
+        rating: 1,
+        price: 199990
     }
 ]
